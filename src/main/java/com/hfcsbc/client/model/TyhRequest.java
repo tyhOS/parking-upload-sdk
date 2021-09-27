@@ -19,22 +19,17 @@ import java.nio.charset.StandardCharsets;
 @Data
 @Builder
 public class TyhRequest {
-    @NotNull
     @JSONField(name = "access_id")
     private String accessId;
 
-    @NotNull
     @JSONField(name = "sign_type")
     private String signType;
 
-    @NotNull
     @JSONField(name = "time_stamp")
     private Long timeStamp;
 
-    @NotNull
     private String sign;
 
-    @NotNull
     private String data;
 
     /**
