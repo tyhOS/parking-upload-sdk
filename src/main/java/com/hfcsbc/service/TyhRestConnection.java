@@ -64,7 +64,7 @@ public class TyhRestConnection {
     try {
       if (json.containsKey("code")) {
         Integer code = json.getInteger("code");
-        if (code.equals(TyhErrorCode.SUCCESS.getCode())) {
+        if (!code.equals(TyhErrorCode.SUCCESS.getCode())) {
           String msg = json.getString("msg");
           throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Executing] " + code + ": " + msg);
         }
