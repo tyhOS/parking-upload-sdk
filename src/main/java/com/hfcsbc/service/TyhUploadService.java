@@ -31,46 +31,46 @@ public class TyhUploadService implements TyhUploadClient {
 
   @Override
   public TyhResponse uploadSurplus(UploadSurplusCmd uploadSurplusCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadSurplusCmd).getBytes();
+    byte[] data = JSON.toJSONString(uploadSurplusCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
-            .data(new String(Base64.encode(data), StandardCharsets.UTF_8)).build();
+            .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_SURPLUS, tyhRequest);
   }
 
   @Override
   public TyhResponse uploadDriveIn(UploadDriveInCmd uploadDriveInCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadDriveInCmd).getBytes();
+    byte[] data = JSON.toJSONString(uploadDriveInCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
-            .data(new String(Base64.encode(data), StandardCharsets.UTF_8)).build();
+            .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IN, tyhRequest);
   }
 
   @Override
   public TyhResponse uploadDriveOut(UploadDriveOutCmd uploadDriveOutCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadDriveOutCmd).getBytes();
+    byte[] data = JSON.toJSONString(uploadDriveOutCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
-            .data(new String(Base64.encode(data), StandardCharsets.UTF_8)).build();
+            .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_OUT, tyhRequest);
   }
 
   @Override
   public TyhResponse uploadImage(UploadImageCmd uploadImageCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadImageCmd).getBytes();
+    byte[] data = JSON.toJSONString(uploadImageCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
-            .data(new String(Base64.encode(data), StandardCharsets.UTF_8)).build();
+            .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IMAGE, tyhRequest);
   }
 
   @Override
   public  TyhResponse uploadHeartbeat(UploadHeartbeatCmd uploadHeartbeatCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadHeartbeatCmd).getBytes();
+    byte[] data = JSON.toJSONString(uploadHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
-            .data(new String(Base64.encode(data), StandardCharsets.UTF_8)).build();
+            .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_HEARTBEAT, tyhRequest);
   }
 

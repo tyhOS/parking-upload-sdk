@@ -19,7 +19,7 @@ import okhttp3.RequestBody;
 
 
 public class TyhRestConnection {
-  private static final MediaType JSON_TYPE = MediaType.parse("application/json");
+  private static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
 
   private Options options;
 
