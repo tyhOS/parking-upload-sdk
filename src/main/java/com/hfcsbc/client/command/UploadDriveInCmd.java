@@ -1,6 +1,7 @@
 package com.hfcsbc.client.command;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
  **/
 
 @Data
+@Builder
 public class UploadDriveInCmd {
     @JSONField(name = "parking_code")
     private String parkingCode;

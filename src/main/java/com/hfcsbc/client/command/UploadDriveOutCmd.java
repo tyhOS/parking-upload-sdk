@@ -1,6 +1,7 @@
 package com.hfcsbc.client.command;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.Date;
  * @create: 2021-09-24 16:20
  **/
 @Data
+@Builder
 public class UploadDriveOutCmd {
     @JSONField(name = "parking_code")
     private String parkingCode;

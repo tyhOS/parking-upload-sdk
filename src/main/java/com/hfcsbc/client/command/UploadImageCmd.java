@@ -1,6 +1,7 @@
 package com.hfcsbc.client.command;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -10,6 +11,7 @@ import lombok.Data;
  * @create: 2021-09-24 16:25
  **/
 @Data
+@Builder
 public class UploadImageCmd {
     @JSONField(name = "parking_code")
     private String parkingCode;
