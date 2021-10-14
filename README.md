@@ -69,3 +69,35 @@ try {
         System.out.println("调用失败，失败原因="+e.getMessage());
 }             
 ```
+
+
+
+### Question
+
+maven引入失败？
+
+解决方案：
+
+```
+1.找到maven的settings.xml文件；
+2.找到<servers>标签，在标签内添加如下内容：
+  <server>
+      <id>github</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
+（注：USERNAME代表自己的git用户名，TOKEN为git账号的TOKEN信息）
+ 
+3.找到<repositories>标签,在标签内添加如下内容：
+<repository>
+  <id>github</id>
+  <url>https://maven.pkg.github.com/tyhOS/*</url>
+  <snapshots>
+  <enabled>true</enabled>
+  </snapshots>
+</repository>
+
+4.回到项目，mvn install
+```
+
