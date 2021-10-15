@@ -48,7 +48,10 @@ public class TyhRestConnection {
 
   public TyhResponse executePostWithSignature(String path, TyhRequest tyhRequest) throws Exception {
     Options options = this.getOptions();
-    tyhRequest.setSign(RSA2Utils.doSign(tyhRequest.getData(), "utf-8", privateKey));
+
+    String content = tyhRequest.getAccessId() + tyhRequest.getData()
+            + tyhRequest.getSignType() + tyhRequest.getTimeStamp();
+    tyhRequest.setSign(RSA2Utils.doSign(content, "utf-8", privateKey));
 
     String requestUrl =  options.getRestHost() + path;
     Request executeRequest = new Request.Builder().url(requestUrl).post(RequestBody.create(JSON_TYPE, JSON.toJSONString(tyhRequest)))

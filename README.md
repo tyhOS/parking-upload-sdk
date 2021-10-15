@@ -9,7 +9,7 @@
 <dependency>
   <groupId>com.hfcsbc.sdk</groupId>
   <artifactId>upload-client</artifactId>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.6-SNAPSHOT</version>
 </dependency>
 ```
 
