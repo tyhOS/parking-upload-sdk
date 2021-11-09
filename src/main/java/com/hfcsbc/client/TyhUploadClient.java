@@ -20,4 +20,9 @@ public interface TyhUploadClient {
     TyhResponse uploadImage(UploadImageCmd uploadImageCmd) throws Exception;
 
     TyhResponse uploadHeartbeat(UploadHeartbeatCmd uploadHeartbeatCmd) throws Exception;
+
+    TyhResponse uploadCheckRecord(UploadCheckRecordCmd cmd) throws Exception;
+
+    TyhResponse uploadUID(UploadUIDCmd cmd) throws Exception;
+
 }

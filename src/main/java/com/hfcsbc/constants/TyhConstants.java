@@ -40,5 +40,19 @@ public class TyhConstants {
         Integer WEIXIN = 3;   // 微信
         Integer OTHER = -1;   // 其他
     }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface CheckRecordFlag {
+        Integer PASS   = 0;       // 帐平
+        Integer NO_PASS  = 1;     // 帐不平
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface DriveType {
+        Integer DRIVE_IN   = 0;     // 驶入
+        Integer DRIVE_OUT  = 1;     // 驶出
+    }
     
 }
