@@ -11,18 +11,18 @@ public interface TyhUploadClient {
         return new TyhUploadService(options);
     }
 
-    TyhResponse uploadSurplus(UploadSurplusCmd uploadSurplusCmd) throws Exception;
+    TyhResponse uploadSurplus(OpenParkingSurplusCmd openParkingSurplusCmd) throws Exception;
 
-    TyhResponse uploadDriveIn(UploadDriveInCmd uploadDriveInCmd) throws Exception;
+    TyhResponse uploadDriveIn(OpenParkingDriveInCmd openParkingDriveInCmd) throws Exception;
 
-    TyhResponse uploadDriveOut(UploadDriveOutCmd uploadDriveOutCmd) throws Exception;
+    TyhResponse uploadDriveOut(OpenParkingDriveOutCmd openParkingDriveOutCmd) throws Exception;
 
-    TyhResponse uploadImage(UploadImageCmd uploadImageCmd) throws Exception;
+    TyhResponse uploadImage(OpenParkingImageCmd openParkingImageCmd) throws Exception;
 
-    TyhResponse uploadHeartbeat(UploadHeartbeatCmd uploadHeartbeatCmd) throws Exception;
+    TyhResponse uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception;
 
-    TyhResponse uploadCheckRecord(UploadCheckRecordCmd cmd) throws Exception;
+    TyhResponse uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception;
 
-    TyhResponse uploadUID(UploadUIDCmd cmd) throws Exception;
+    TyhResponse uploadUID(OpenParkingUIDCmd cmd) throws Exception;
 
 }

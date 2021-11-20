@@ -60,13 +60,13 @@ TyhUploadClient uploadClient = TyhUploadClient.create(TyhOptions.builder()
     .secretKey(SECRET_KEY).build());
 
 // 上传余位数据
-UploadSurplusCmd uploadSurplusCmd = UploadSurplusCmd.builder()
+UploadSurplusCmd openParkingSurplusCmd = UploadSurplusCmd.builder()
     .parkingCode(PARKING_CODE)
     .total(20)
     .surplus(10).build();
 
 try {
-    TyhResponse reponse = uploadClient.uploadSurplus(uploadSurplusCmd);
+    TyhResponse reponse = uploadClient.uploadSurplus(openParkingSurplusCmd);
     if (!reponse.ifSuccess()) {
           System.out.println("调用失败，错误码="+ reponse.getCode() + "，失败原因="+reponse.getMsg());
     }

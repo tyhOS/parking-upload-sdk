@@ -1,7 +1,10 @@
 package com.hfcsbc.client.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -13,8 +16,11 @@ import java.util.List;
  */
 @Data
 @Builder
-public class UploadUIDDto  {
+@AllArgsConstructor
+@NoArgsConstructor
+public class OpenParkingUIDDto {
 
+    @JSONField(name = "order_id_list")
     private List<String> orderIdList;
 
 }

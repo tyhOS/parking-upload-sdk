@@ -4,6 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @program: tyh-os
  * @description: 2.2.1停车场余位上传
@@ -12,9 +14,15 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class UploadSurplusCmd {
-    @JSONField(name = "parking_code")
-    private String parkingCode;
+public class OpenParkingSurplusCmd {
+
+    @JSONField(name = "os_store_id")
+    @NotNull(message = "os_store_id不可为空")
+    private Long osStoreId;
+
+    @NotNull(message = "total不可为空")
     private Integer total;
+
+    @NotNull(message = "total不可为空")
     private Integer surplus;
 }

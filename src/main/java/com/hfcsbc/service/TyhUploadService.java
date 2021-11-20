@@ -33,8 +33,8 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadSurplus(UploadSurplusCmd uploadSurplusCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadSurplusCmd).getBytes(StandardCharsets.UTF_8);
+  public TyhResponse uploadSurplus(OpenParkingSurplusCmd openParkingSurplusCmd) throws Exception {
+    byte[] data = JSON.toJSONString(openParkingSurplusCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
@@ -42,8 +42,8 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadDriveIn(UploadDriveInCmd uploadDriveInCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadDriveInCmd).getBytes(StandardCharsets.UTF_8);
+  public TyhResponse uploadDriveIn(OpenParkingDriveInCmd openParkingDriveInCmd) throws Exception {
+    byte[] data = JSON.toJSONString(openParkingDriveInCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
@@ -51,8 +51,8 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadDriveOut(UploadDriveOutCmd uploadDriveOutCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadDriveOutCmd).getBytes(StandardCharsets.UTF_8);
+  public TyhResponse uploadDriveOut(OpenParkingDriveOutCmd openParkingDriveOutCmd) throws Exception {
+    byte[] data = JSON.toJSONString(openParkingDriveOutCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
@@ -60,8 +60,8 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadImage(UploadImageCmd uploadImageCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadImageCmd).getBytes(StandardCharsets.UTF_8);
+  public TyhResponse uploadImage(OpenParkingImageCmd openParkingImageCmd) throws Exception {
+    byte[] data = JSON.toJSONString(openParkingImageCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
@@ -69,8 +69,8 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public  TyhResponse uploadHeartbeat(UploadHeartbeatCmd uploadHeartbeatCmd) throws Exception {
-    byte[] data = JSON.toJSONString(uploadHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
+  public  TyhResponse uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
+    byte[] data = JSON.toJSONString(openParkingHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
@@ -78,7 +78,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadCheckRecord(UploadCheckRecordCmd cmd) throws Exception {
+  public TyhResponse uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())
@@ -89,7 +89,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadUID(UploadUIDCmd cmd) throws Exception {
+  public TyhResponse uploadUID(OpenParkingUIDCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())

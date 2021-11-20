@@ -1,5 +1,6 @@
 package com.hfcsbc.client.dto;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.hfcsbc.constants.TyhConstants;
 import lombok.Builder;
 import lombok.Data;
@@ -12,11 +13,13 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class UploadCheckRecordDto {
+public class OpenParkingCheckRecordDto {
 
+    @JSONField(name = "drive_in_flag")
     @TyhConstants.CheckRecordFlag
     private Integer driveInFlag;
 
+    @JSONField(name = "drive_out_flag")
     @TyhConstants.CheckRecordFlag
     private Integer driveOutFlag;
 

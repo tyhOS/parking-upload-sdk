@@ -4,6 +4,9 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.hfcsbc.constants.TyhConstants;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -14,15 +17,19 @@ import java.util.Date;
  */
 @Data
 @Builder
-public class UploadUIDCmd {
+public class OpenParkingUIDCmd {
 
-    @JSONField(name = "parking_code")
-    private String parkingCode;
+    @JSONField(name = "os_store_id")
+    @NotNull(message = "parking_code不可为空")
+    private Long osStoreId;
 
     @JSONField(name = "check_date")
+    @NotNull(message = "check_date不可为空")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkDate;
 
     @TyhConstants.DriveType
+    @NotNull(message = "type不可为空")
     private Integer type;
 
 }

@@ -4,6 +4,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @program: tyh-os
  * @description: 2.2.1心跳上传
@@ -12,10 +14,13 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class UploadHeartbeatCmd {
-    @JSONField(name = "parking_code")
-    private String parkingCode;
+public class OpenParkingHeartbeatCmd {
+
+    @JSONField(name = "os_store_id")
+    @NotNull(message = "os_store_id不可为空")
+    private Long osStoreId;
 
     @JSONField(name = "upload_time")
+    @NotNull(message = "upload_time不可为空")
     private Long uploadTime;
 }

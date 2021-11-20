@@ -1,7 +1,7 @@
 package com.hfcsbc.example;
 
 import com.hfcsbc.client.TyhUploadClient;
-import com.hfcsbc.client.command.UploadSurplusCmd;
+import com.hfcsbc.client.command.OpenParkingSurplusCmd;
 import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.constants.TyhOptions;
 import org.junit.Test;
@@ -14,26 +14,26 @@ public class UploadTest {
     @Test
     public void UploadTest1(){
         // 创建上传数据client
-        TyhUploadClient uploadClient = TyhUploadClient.create(TyhOptions.builder()
-                .accessId(ACCESS_ID)
-                .secretKey(SECRET_KEY)
-                .build());
+//        TyhUploadClient uploadClient = TyhUploadClient.create(TyhOptions.builder()
+//                .accessId(ACCESS_ID)
+//                .secretKey(SECRET_KEY)
+//                .build());
 
         // 上传余位数据
-        UploadSurplusCmd uploadSurplusCmd = UploadSurplusCmd.builder()
-                .parkingCode(PARKING_CODE)
-                .total(20)
-                .surplus(10).build();
+//        OpenParkingSurplusCmd openParkingSurplusCmd = OpenParkingSurplusCmd.builder()
+//                .parkingCode(PARKING_CODE)
+//                .total(20)
+//                .surplus(10).build();
 
-        try {
-            TyhResponse reponse = uploadClient.uploadSurplus(uploadSurplusCmd);
-            if (!reponse.ifSuccess()) {
-                System.out.println("调用失败，错误码="+ reponse.getCode() + "，失败原因="+reponse.getMsg());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("调用失败，失败原因="+e.getMessage());
-        }
+//        try {
+//            TyhResponse reponse = uploadClient.uploadSurplus(openParkingSurplusCmd);
+//            if (!reponse.ifSuccess()) {
+//                System.out.println("调用失败，错误码="+ reponse.getCode() + "，失败原因="+reponse.getMsg());
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("调用失败，失败原因="+e.getMessage());
+//        }
     }
 
 }
