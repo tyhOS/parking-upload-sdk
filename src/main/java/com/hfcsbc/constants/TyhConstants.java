@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
  * @create: 2021-09-23 14:23
  **/
 public class TyhConstants {
+
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
     public @interface CarPlateColor {
@@ -25,10 +26,30 @@ public class TyhConstants {
 
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface CarPlateColorDesc {
+        String BLUE = "蓝色";
+        String YELLOW = "黄色";
+        String WHITE = "白色";
+        String BLACK = "黑色";
+        String GREEN = "绿色";
+        String YELLOW_GREEN = "黄绿双拼色";
+    }
+
+
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
     public @interface ParkType {
         Integer TEMPORARY = 1; // 临时车
         Integer MONTH  = 2;    // 包月车
         Integer PRIVILEGE = 3; // 特殊车
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface ParkTypeDesc {
+        String TEMPORARY = "临时车";
+        String MONTH  = "包月车";
+        String PRIVILEGE = "特殊车";
     }
 
     @Retention(RetentionPolicy.SOURCE)
@@ -54,5 +75,15 @@ public class TyhConstants {
         Integer DRIVE_IN   = 0;     // 驶入
         Integer DRIVE_OUT  = 1;     // 驶出
     }
-    
+
+    public static String getCarPlateColorDesc(@TyhConstants.CarPlateColor Integer carPlateColor) {
+        if (CarPlateColor.BLUE.equals(carPlateColor)) return CarPlateColorDesc.BLUE;
+        else if (CarPlateColor.YELLOW.equals(carPlateColor)) return CarPlateColorDesc.YELLOW;
+        else if (CarPlateColor.WHITE.equals(carPlateColor)) return CarPlateColorDesc.WHITE;
+        else if (CarPlateColor.BLACK.equals(carPlateColor)) return CarPlateColorDesc.BLACK;
+        else if (CarPlateColor.GREEN.equals(carPlateColor)) return CarPlateColorDesc.GREEN;
+        else if (CarPlateColor.YELLOW_GREEN.equals(carPlateColor)) return CarPlateColorDesc.YELLOW_GREEN;
+        return "";
+    }
+
 }

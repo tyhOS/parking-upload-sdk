@@ -23,6 +23,6 @@ public class OpenParkingSurplusCmd {
     @NotNull(message = "total不可为空")
     private Integer total;
 
-    @NotNull(message = "total不可为空")
+    @NotNull(message = "surplus不可为空")
     private Integer surplus;
 }
