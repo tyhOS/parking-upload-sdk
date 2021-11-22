@@ -2,7 +2,7 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhUploadClient;
-import com.hfcsbc.client.command.*;
+import com.hfcsbc.client.command.upload.*;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.constants.Options;

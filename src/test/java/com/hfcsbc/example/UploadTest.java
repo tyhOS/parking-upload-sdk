@@ -1,9 +1,5 @@
 package com.hfcsbc.example;
 
-import com.hfcsbc.client.TyhUploadClient;
-import com.hfcsbc.client.command.OpenParkingSurplusCmd;
-import com.hfcsbc.client.model.TyhResponse;
-import com.hfcsbc.constants.TyhOptions;
 import org.junit.Test;
 
 public class UploadTest {

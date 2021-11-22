@@ -3,7 +3,7 @@ package com.hfcsbc.utils;
 import java.util.Random;
 
 /**
- * @Author 刘翀
+ * @Author Liu Chong
  * @DateTime 2021/9/17
  * @Description 字符串工具类
  */

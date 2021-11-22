@@ -1,6 +1,6 @@
 package com.hfcsbc.client;
 
-import com.hfcsbc.client.command.*;
+import com.hfcsbc.client.command.upload.*;
 import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhUploadService;

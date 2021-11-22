@@ -1,4 +1,4 @@
-package com.hfcsbc.client.command;
+package com.hfcsbc.client.command.upload;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.hfcsbc.constants.TyhConstants;
