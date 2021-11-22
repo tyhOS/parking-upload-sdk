@@ -1,4 +1,4 @@
-package com.hfcsbc.client.command.payment;
+package com.hfcsbc.client.command.trade;
 
 import com.hfcsbc.constants.PayConstant;
 import lombok.Builder;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Data
 @Builder
-public class MergeTradeCmd {
+public class TradeMergeCmd {
 
     /**
      * 平台分配服务商ID

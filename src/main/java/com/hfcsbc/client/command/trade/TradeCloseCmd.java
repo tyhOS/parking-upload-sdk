@@ -1,4 +1,4 @@
-package com.hfcsbc.client.command.payment;
+package com.hfcsbc.client.command.trade;
 
 import lombok.Builder;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.hfcsbc.client.command.payment;
+package com.hfcsbc.client.command.trade;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class MergeTradeCloseCmd {
+public class TradeMergeCloseCmd {
 
     /**
      * 暂时写死,后期通过网关统一从用户公钥私钥比对拿出来

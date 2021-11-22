@@ -1,10 +1,8 @@
 package com.hfcsbc.client;
 
-import com.hfcsbc.client.command.payment.MergeTradeCloseCmd;
-import com.hfcsbc.client.command.payment.MergeTradeCmd;
-import com.hfcsbc.client.command.payment.TradeCloseCmd;
-import com.hfcsbc.client.command.payment.TradeCmd;
+import com.hfcsbc.client.command.trade.*;
 import com.hfcsbc.client.model.TyhResponse;
+import com.hfcsbc.client.model.TyhTradeResponse;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhPaymentService;
 
@@ -22,21 +20,42 @@ public interface TyhPaymentClient {
     /**
      * 单笔交易
      */
-    TyhResponse trade(TradeCmd cmd) throws Exception;
+    TyhTradeResponse trade(TradeCmd cmd) throws Exception;
 
     /**
      * 关闭单笔交易订单
      */
-    TyhResponse closeTrade(TradeCloseCmd cmd) throws Exception;
+    TyhTradeResponse closeTrade(TradeCloseCmd cmd) throws Exception;
 
     /**
      * 合并订单交易请求
      */
-    TyhResponse mergeTrade(MergeTradeCmd cmd) throws Exception;
+    TyhTradeResponse mergeTrade(TradeMergeCmd cmd) throws Exception;
 
     /**
      * 关闭合并交易订单
      */
-    TyhResponse closeMergeTrade(MergeTradeCloseCmd cmd) throws Exception;
+    TyhTradeResponse closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception;
+
+    /**
+     * 查询交易结果
+     */
+    TyhTradeResponse tradeQuery(TradeQuery query) throws Exception;
+
+    /**
+     * 查询很大交易结果
+     */
+    TyhTradeResponse tradeMergeQuery(TradeMergeQuery query) throws Exception;
+
+    /**
+     * 请求单笔退款
+     */
+    TyhTradeResponse tradeRefund(TradeRefundCmd cmd) throws Exception;
+
+    /**
+     * 查询交易退款结果
+     */
+    TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception;
+
 
 }

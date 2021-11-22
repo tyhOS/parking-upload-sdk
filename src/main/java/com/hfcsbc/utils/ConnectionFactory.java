@@ -11,6 +11,7 @@ import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -62,8 +63,8 @@ public class ConnectionFactory {
       if (response.code() != 200) {
         throw new TyhException(TyhErrorCode.REQUEST_NETWORKS_ERROR.getCode(), "[Execute] Response Status Error : " + response.code() + " message:" + response.message());
       }
-      if (response != null && response.body() != null) {
-        str = response.body().string();
+      if (response.body() != null) {
+        str = Objects.requireNonNull(response.body()).string();
         response.close();
       } else {
         throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
