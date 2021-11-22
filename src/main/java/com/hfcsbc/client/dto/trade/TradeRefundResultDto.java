@@ -1,7 +1,6 @@
 package com.hfcsbc.client.dto.trade;
 
 import com.hfcsbc.constants.PayConstant;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
@@ -12,7 +11,6 @@ import java.util.Date;
  * @Description 交易退款结果dto
  */
 @Data
-@Builder
 public class TradeRefundResultDto {
 
     /**

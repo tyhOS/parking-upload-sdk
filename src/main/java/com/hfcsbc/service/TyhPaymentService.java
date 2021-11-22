@@ -3,10 +3,7 @@ package com.hfcsbc.service;
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.trade.*;
-import com.hfcsbc.client.dto.trade.TradeMergePayDto;
-import com.hfcsbc.client.dto.trade.TradeNotifyDto;
-import com.hfcsbc.client.dto.trade.TradePayDto;
-import com.hfcsbc.client.dto.trade.TradeRefundResultDto;
+import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.client.model.TyhTradeResponse;
@@ -79,12 +76,12 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     @Override
     public TyhTradeResponse tradeQuery(TradeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_QUERY_PATH), TradeNotifyDto.class);
+        return TyhTradeResponse.build(generalPostRequest(query, TRADE_QUERY_PATH), TradeQueryResultDto.class);
     }
 
     @Override
     public TyhTradeResponse tradeMergeQuery(TradeMergeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_MERGE_QUERY_PATH), TradeNotifyDto.class);
+        return TyhTradeResponse.build(generalPostRequest(query, TRADE_MERGE_QUERY_PATH), TradeMergeQueryResultDto.class);
     }
 
     @Override
