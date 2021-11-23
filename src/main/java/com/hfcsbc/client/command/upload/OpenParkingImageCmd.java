@@ -1,8 +1,10 @@
 package com.hfcsbc.client.command.upload;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
@@ -14,6 +16,8 @@ import javax.validation.constraints.NotNull;
  **/
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OpenParkingImageCmd {
 
     @JSONField(name = "os_store_id")

@@ -1,8 +1,10 @@
 package com.hfcsbc.client.command.upload;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
@@ -15,8 +17,10 @@ import java.util.Date;
  * @dateTime 2021/11/8
  * @description 停车日对账
  */
-@Data
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OpenParkingCheckRecordCmd {
 
     @JSONField(name = "os_store_id")
