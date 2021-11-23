@@ -23,6 +23,9 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String SIGN_TYPE = "RSA";
 
     /* -------------------------- 交易和关闭 -------------------------- */
+    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/buyerId/open";
+
+    /* -------------------------- 交易和关闭 -------------------------- */
     public static final String TRADE_PATH = "/trade/open";
     public static final String TRADE_CLOSE_PATH = "/trade/close/open";
     public static final String MERGE_TRADE_PATH = "/trade/merge/open";
@@ -52,6 +55,11 @@ public class TyhPaymentService implements TyhPaymentClient {
                 .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
                 .data(new String(Base64.encode(data))).build();
         return restConnection.executePostWithSignature(path, tyhRequest);
+    }
+
+    @Override
+    public TyhTradeResponse obtainBuyerId(TradeBuyerIdQuery query) throws Exception {
+        return TyhTradeResponse.build(generalPostRequest(query, TRADE_BUYER_ID_PATH));
     }
 
     @Override

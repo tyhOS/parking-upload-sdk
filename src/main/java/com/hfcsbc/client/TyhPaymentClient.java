@@ -18,6 +18,11 @@ public interface TyhPaymentClient {
     }
 
     /**
+     * 获取用户在支付平台的buyerId(openId)
+     */
+    TyhTradeResponse obtainBuyerId(TradeBuyerIdQuery query) throws Exception;
+
+    /**
      * 单笔交易
      */
     TyhTradeResponse trade(TradeCmd cmd) throws Exception;

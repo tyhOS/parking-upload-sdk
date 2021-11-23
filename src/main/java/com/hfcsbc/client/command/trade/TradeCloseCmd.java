@@ -22,4 +22,9 @@ public class TradeCloseCmd {
      */
     private String ownerTradeNo;
 
+    /**
+     * 开放平台给支付平台的交易订单号
+     */
+    private String osTradeNo;
+
 }
