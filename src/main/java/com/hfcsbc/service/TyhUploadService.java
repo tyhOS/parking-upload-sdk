@@ -3,6 +3,9 @@ package com.hfcsbc.service;
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhUploadClient;
 import com.hfcsbc.client.command.upload.*;
+import com.hfcsbc.client.dto.OpenParkingCheckRecordDto;
+import com.hfcsbc.client.dto.OpenParkingHeartbeatDto;
+import com.hfcsbc.client.dto.OpenParkingUIDDto;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
@@ -69,7 +72,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public Results<String> uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
+  public Results<OpenParkingHeartbeatDto> uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -78,7 +81,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public Results<String> uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
+  public Results<OpenParkingCheckRecordDto> uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())
@@ -89,7 +92,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public Results<String> uploadUID(OpenParkingUIDCmd cmd) throws Exception {
+  public Results<OpenParkingUIDDto> uploadUID(OpenParkingUIDCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())
