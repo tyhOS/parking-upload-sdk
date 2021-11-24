@@ -12,7 +12,7 @@ import lombok.ToString;
 public class TyhOptions implements Options {
 
   @Builder.Default
-  private String restHost = "https://jiguang.hfcsbc.com/open/api";
+  private String restHost = "https://jiguang.hfcsbc.com";
 
   private String accessId;
 

@@ -15,13 +15,13 @@ import java.util.Date;
 public class TyhUploadService implements TyhUploadClient {
 
   public static final String SIGN_TYPE = "RSA";
-  public static final String POST_UPLOAD_SURPLUS = "/v1/uploadSurplus";
-  public static final String POST_UPLOAD_DRIVE_IN = "/v1/uploadDriveIn";
-  public static final String POST_UPLOAD_DRIVE_OUT = "/v1/uploadDriveOut";
-  public static final String POST_UPLOAD_DRIVE_IMAGE = "/v1/uploadImage";
-  public static final String POST_UPLOAD_HEARTBEAT = "/v1/uploadHeartbeat";
-  public static final String POST_UPLOAD_CHECK_RECORD = "/v1/uploadCheckRecord";
-  public static final String POST_UPLOAD_UID = "/v1/uploadUID";
+  public static final String POST_UPLOAD_SURPLUS = "/open/api/v1/uploadSurplus";
+  public static final String POST_UPLOAD_DRIVE_IN = "/open/api/v1/uploadDriveIn";
+  public static final String POST_UPLOAD_DRIVE_OUT = "/open/api/v1/uploadDriveOut";
+  public static final String POST_UPLOAD_DRIVE_IMAGE = "/open/api/v1/uploadImage";
+  public static final String POST_UPLOAD_HEARTBEAT = "/open/api/v1/uploadHeartbeat";
+  public static final String POST_UPLOAD_CHECK_RECORD = "/open/api/v1/uploadCheckRecord";
+  public static final String POST_UPLOAD_UID = "/open/api/v1/uploadUID";
 
   private Options options;
 
