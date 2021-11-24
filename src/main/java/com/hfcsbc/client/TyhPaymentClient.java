@@ -1,8 +1,9 @@
 package com.hfcsbc.client;
 
 import com.hfcsbc.client.command.trade.*;
-import com.hfcsbc.client.model.TyhResponse;
-import com.hfcsbc.client.model.TyhTradeResponse;
+import com.hfcsbc.client.dto.trade.*;
+import com.hfcsbc.client.model.Results;
+import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhPaymentService;
 
@@ -18,44 +19,55 @@ public interface TyhPaymentClient {
     }
 
     /**
+     * 获取用户在支付平台的buyerId(openId)
+     */
+    Results<String> obtainBuyerId(TradeBuyerIdQuery query) throws Exception;
+
+    /**
      * 单笔交易
      */
-    TyhTradeResponse trade(TradeCmd cmd) throws Exception;
+    Results<TradePayDto> trade(TradeCmd cmd) throws Exception;
 
     /**
      * 关闭单笔交易订单
      */
-    TyhTradeResponse closeTrade(TradeCloseCmd cmd) throws Exception;
+    Results<String> closeTrade(TradeCloseCmd cmd) throws Exception;
 
     /**
      * 合并订单交易请求
      */
-    TyhTradeResponse mergeTrade(TradeMergeCmd cmd) throws Exception;
+    Results<TradeMergePayDto> mergeTrade(TradeMergeCmd cmd) throws Exception;
 
     /**
      * 关闭合并交易订单
      */
-    TyhTradeResponse closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception;
+    Results<String> closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception;
 
     /**
      * 查询交易结果
      */
-    TyhTradeResponse tradeQuery(TradeQuery query) throws Exception;
+    Results<TradeQueryResultDto> tradeQuery(TradeQuery query) throws Exception;
 
     /**
      * 查询很大交易结果
      */
-    TyhTradeResponse tradeMergeQuery(TradeMergeQuery query) throws Exception;
+    Results<TradeMergeQueryResultDto> tradeMergeQuery(TradeMergeQuery query) throws Exception;
 
     /**
      * 请求单笔退款
      */
-    TyhTradeResponse tradeRefund(TradeRefundCmd cmd) throws Exception;
+    Results<String> tradeRefund(TradeRefundCmd cmd) throws Exception;
 
     /**
      * 查询交易退款结果
      */
-    TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception;
+    Results<TradeRefundResultDto> tradeRefundQuery(TradeRefundQuery query) throws Exception;
+
+
+    /**
+     * 根据传参，获取加密后的请求参数
+     */
+    TyhRequest obtainSignRequestParam(Object param)  throws Exception;
 
 
 }

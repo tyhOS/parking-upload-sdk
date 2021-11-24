@@ -1,5 +1,6 @@
 package com.hfcsbc.constants;
 
+import com.hfcsbc.utils.StringUtil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -11,12 +12,15 @@ import lombok.ToString;
 @ToString
 public class TyhOptions implements Options {
 
-  @Builder.Default
-  private String restHost = "https://jiguang.hfcsbc.com/open/api";
+  public static final String DEFAULT_REST_HOST = "https://jiguang.hfcsbc.com";
+
+  private String restHost;
 
   private String accessId;
 
   private String secretKey;
+
+  private Boolean allowUpload;
 
   @Override
   public String getAccessId() {
@@ -30,7 +34,12 @@ public class TyhOptions implements Options {
 
   @Override
   public String getRestHost() {
-    return this.restHost;
+    return StringUtil.isEmpty(restHost) ? DEFAULT_REST_HOST : restHost;
+  }
+
+  @Override
+  public Boolean getAllowUpload() {
+    return this.allowUpload;
   }
 
 }

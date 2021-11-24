@@ -4,14 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.trade.*;
 import com.hfcsbc.client.dto.trade.*;
+import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
-import com.hfcsbc.client.model.TyhResponse;
-import com.hfcsbc.client.model.TyhTradeResponse;
 import com.hfcsbc.constants.Options;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 
 /**
  * @Author Liu Chong
@@ -23,18 +21,21 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String SIGN_TYPE = "RSA";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_PATH = "/trade/open";
-    public static final String TRADE_CLOSE_PATH = "/trade/close/open";
-    public static final String MERGE_TRADE_PATH = "/trade/merge/open";
-    public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/open";
+    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/buyerId/v1/open";
+
+    /* -------------------------- 交易和关闭 -------------------------- */
+    public static final String TRADE_PATH = "/trade/v1/open";
+    public static final String TRADE_CLOSE_PATH = "/trade/close/v1/open";
+    public static final String MERGE_TRADE_PATH = "/trade/merge/v1/open";
+    public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/v1/open";
 
     /* -------------------------- 交易查询 -------------------------- */
-    public static final String TRADE_QUERY_PATH = "/query/trade";
-    public static final String TRADE_MERGE_QUERY_PATH = "/query/merge/trade";
-    public static final String TRADE_REFUND_QUERY_PATH = "/query/refund";
+    public static final String TRADE_QUERY_PATH = "/query/trade/v1/open";
+    public static final String TRADE_MERGE_QUERY_PATH = "/query/merge/trade/v1/open";
+    public static final String TRADE_REFUND_QUERY_PATH = "/query/refund/v1/open";
 
     /* -------------------------- 退款相关 --------------------------- */
-    public static final String TRADE_REFUND_PATH = "/refund/open";
+    public static final String TRADE_REFUND_PATH = "/refund/v1/open";
 
 
     private final Options options;
@@ -46,51 +47,65 @@ public class TyhPaymentService implements TyhPaymentClient {
         restConnection = new TyhRestConnection(options);
     }
 
-    public TyhResponse generalPostRequest(Object object, String path) throws Exception {
+    public <T> Results<T> generalPostRequest(Object object, String path) throws Exception {
         byte[] data = JSON.toJSONString(object).getBytes(StandardCharsets.UTF_8);
         TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-                .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+                .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
                 .data(new String(Base64.encode(data))).build();
         return restConnection.executePostWithSignature(path, tyhRequest);
     }
 
     @Override
-    public TyhTradeResponse trade(TradeCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_PATH), TradePayDto.class);
+    public Results<String> obtainBuyerId(TradeBuyerIdQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_BUYER_ID_PATH);
     }
 
     @Override
-    public TyhTradeResponse closeTrade(TradeCloseCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_CLOSE_PATH));
+    public Results<TradePayDto> trade(TradeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_PATH);
     }
 
     @Override
-    public TyhTradeResponse mergeTrade(TradeMergeCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, MERGE_TRADE_PATH), TradeMergePayDto.class);
+    public Results<String> closeTrade(TradeCloseCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_CLOSE_PATH);
     }
 
     @Override
-    public TyhTradeResponse closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, MERGE_TRADE_CLOSE_PATH));
+    public Results<TradeMergePayDto> mergeTrade(TradeMergeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MERGE_TRADE_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeQuery(TradeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_QUERY_PATH), TradeQueryResultDto.class);
+    public Results<String> closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MERGE_TRADE_CLOSE_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeMergeQuery(TradeMergeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_MERGE_QUERY_PATH), TradeMergeQueryResultDto.class);
+    public Results<TradeQueryResultDto> tradeQuery(TradeQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_QUERY_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeRefund(TradeRefundCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_REFUND_PATH));
+    public Results<TradeMergeQueryResultDto> tradeMergeQuery(TradeMergeQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_MERGE_QUERY_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_REFUND_QUERY_PATH), TradeRefundResultDto.class);
+    public Results<String> tradeRefund(TradeRefundCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_REFUND_PATH);
+    }
+
+    @Override
+    public Results<TradeRefundResultDto> tradeRefundQuery(TradeRefundQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_REFUND_QUERY_PATH);
+    }
+
+    @Override
+    public TyhRequest obtainSignRequestParam(Object param) throws Exception {
+        byte[] data = JSON.toJSONString(param).getBytes(StandardCharsets.UTF_8);
+        TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
+                .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
+                .data(new String(Base64.encode(data))).build();
+        return restConnection.obtainSignRequestParam(tyhRequest);
     }
 }

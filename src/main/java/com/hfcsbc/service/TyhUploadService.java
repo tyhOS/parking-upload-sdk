@@ -3,8 +3,8 @@ package com.hfcsbc.service;
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhUploadClient;
 import com.hfcsbc.client.command.upload.*;
+import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
-import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.constants.Options;
 import org.bouncycastle.util.encoders.Base64;
 
@@ -15,13 +15,13 @@ import java.util.Date;
 public class TyhUploadService implements TyhUploadClient {
 
   public static final String SIGN_TYPE = "RSA";
-  public static final String POST_UPLOAD_SURPLUS = "/v1/uploadSurplus";
-  public static final String POST_UPLOAD_DRIVE_IN = "/v1/uploadDriveIn";
-  public static final String POST_UPLOAD_DRIVE_OUT = "/v1/uploadDriveOut";
-  public static final String POST_UPLOAD_DRIVE_IMAGE = "/v1/uploadImage";
-  public static final String POST_UPLOAD_HEARTBEAT = "/v1/uploadHeartbeat";
-  public static final String POST_UPLOAD_CHECK_RECORD = "/v1/uploadCheckRecord";
-  public static final String POST_UPLOAD_UID = "/v1/uploadUID";
+  public static final String POST_UPLOAD_SURPLUS = "/open/api/v1/uploadSurplus";
+  public static final String POST_UPLOAD_DRIVE_IN = "/open/api/v1/uploadDriveIn";
+  public static final String POST_UPLOAD_DRIVE_OUT = "/open/api/v1/uploadDriveOut";
+  public static final String POST_UPLOAD_DRIVE_IMAGE = "/open/api/v1/uploadImage";
+  public static final String POST_UPLOAD_HEARTBEAT = "/open/api/v1/uploadHeartbeat";
+  public static final String POST_UPLOAD_CHECK_RECORD = "/open/api/v1/uploadCheckRecord";
+  public static final String POST_UPLOAD_UID = "/open/api/v1/uploadUID";
 
   private Options options;
 
@@ -33,7 +33,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadSurplus(OpenParkingSurplusCmd openParkingSurplusCmd) throws Exception {
+  public Results<String> uploadSurplus(OpenParkingSurplusCmd openParkingSurplusCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingSurplusCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -42,7 +42,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadDriveIn(OpenParkingDriveInCmd openParkingDriveInCmd) throws Exception {
+  public Results<String> uploadDriveIn(OpenParkingDriveInCmd openParkingDriveInCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingDriveInCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -51,7 +51,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadDriveOut(OpenParkingDriveOutCmd openParkingDriveOutCmd) throws Exception {
+  public Results<String> uploadDriveOut(OpenParkingDriveOutCmd openParkingDriveOutCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingDriveOutCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -60,7 +60,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadImage(OpenParkingImageCmd openParkingImageCmd) throws Exception {
+  public Results<String> uploadImage(OpenParkingImageCmd openParkingImageCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingImageCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -69,7 +69,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public  TyhResponse uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
+  public Results<String> uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
@@ -78,7 +78,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
+  public Results<String> uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())
@@ -89,7 +89,7 @@ public class TyhUploadService implements TyhUploadClient {
   }
 
   @Override
-  public TyhResponse uploadUID(OpenParkingUIDCmd cmd) throws Exception {
+  public Results<String> uploadUID(OpenParkingUIDCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime())
