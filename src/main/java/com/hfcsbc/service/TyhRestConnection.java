@@ -1,30 +1,27 @@
 package com.hfcsbc.service;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.security.PrivateKey;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
-import com.hfcsbc.client.model.TyhResponse;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.constants.TyhErrorCode;
 import com.hfcsbc.constants.TyhException;
 import com.hfcsbc.utils.ConnectionFactory;
 import com.hfcsbc.utils.RSA2Utils;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.security.PrivateKey;
 
 
 public class TyhRestConnection {
     private static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
 
-    private Options options;
-
-    private String host;
+    private final Options options;
 
     private PrivateKey privateKey;
 
@@ -35,7 +32,7 @@ public class TyhRestConnection {
     public TyhRestConnection(Options options) {
         this.options = options;
         try {
-            this.host = new URL(this.options.getRestHost()).getHost();
+            String host = new URL(this.options.getRestHost()).getHost();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -47,10 +44,10 @@ public class TyhRestConnection {
         }
     }
 
-    public TyhResponse executePostWithSignature(String path, TyhRequest tyhRequest) throws Exception {
+    public <T> Results<T> executePostWithSignature(String path, TyhRequest tyhRequest) throws Exception {
         Options options = this.getOptions();
         if (!options.getAllowUpload()) {
-            return TyhResponse.FAIL(TyhErrorCode.NOT_ALLOW_UPLOAD);
+            return Results.failure(null, "未开启请求配置");
         }
 
         String content = tyhRequest.getAccessId() + tyhRequest.getData()
@@ -66,7 +63,7 @@ public class TyhRestConnection {
     }
 
 
-    private TyhResponse checkAndGetResponse(String resp) {
+    private <T> Results<T> checkAndGetResponse(String resp) {
         JSONObject json = JSON.parseObject(resp);
         try {
             if (json.containsKey("code")) {
@@ -82,7 +79,7 @@ public class TyhRestConnection {
             throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[ERROR] Unexpected error: " + e.getMessage());
         }
 
-        return JSON.toJavaObject(json, TyhResponse.class);
+        return JSON.toJavaObject(json, Results.class);
     }
 
     public TyhRequest obtainSignRequestParam(TyhRequest tyhRequest) throws Exception {

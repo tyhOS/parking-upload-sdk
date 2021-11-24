@@ -76,6 +76,18 @@ public class TyhConstants {
         Integer DRIVE_OUT  = 1;     // 驶出
     }
 
+    /**
+     * 停车订单图片来源 1：上传驶入照片；2：上传驶出照片；3：上传车位监控照片；4：上传车道监控抓拍图片;
+     */
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface ImageSource {
+        Integer DRIVE_IN = 1;               //驶入照片
+        Integer DRIVE_OUT = 2;              //驶出照片
+        Integer PARKING_SPACE = 3;          //车位监控照片
+        Integer PASSAGE = 4;                //车道监控抓拍
+    }
+
     public static String getCarPlateColorDesc(@TyhConstants.CarPlateColor Integer carPlateColor) {
         if (CarPlateColor.BLUE.equals(carPlateColor)) return CarPlateColorDesc.BLUE;
         else if (CarPlateColor.YELLOW.equals(carPlateColor)) return CarPlateColorDesc.YELLOW;

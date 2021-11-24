@@ -4,9 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.trade.*;
 import com.hfcsbc.client.dto.trade.*;
+import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
-import com.hfcsbc.client.model.TyhResponse;
-import com.hfcsbc.client.model.TyhTradeResponse;
 import com.hfcsbc.constants.Options;
 import org.bouncycastle.util.encoders.Base64;
 
@@ -48,7 +47,7 @@ public class TyhPaymentService implements TyhPaymentClient {
         restConnection = new TyhRestConnection(options);
     }
 
-    public TyhResponse generalPostRequest(Object object, String path) throws Exception {
+    public <T> Results<T> generalPostRequest(Object object, String path) throws Exception {
         byte[] data = JSON.toJSONString(object).getBytes(StandardCharsets.UTF_8);
         TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
                 .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
@@ -57,48 +56,48 @@ public class TyhPaymentService implements TyhPaymentClient {
     }
 
     @Override
-    public TyhTradeResponse obtainBuyerId(TradeBuyerIdQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_BUYER_ID_PATH));
+    public Results<String> obtainBuyerId(TradeBuyerIdQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_BUYER_ID_PATH);
     }
 
     @Override
-    public TyhTradeResponse trade(TradeCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_PATH), TradePayDto.class);
+    public Results<TradePayDto> trade(TradeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_PATH);
     }
 
     @Override
-    public TyhTradeResponse closeTrade(TradeCloseCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_CLOSE_PATH));
+    public Results<String> closeTrade(TradeCloseCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_CLOSE_PATH);
     }
 
     @Override
-    public TyhTradeResponse mergeTrade(TradeMergeCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, MERGE_TRADE_PATH), TradeMergePayDto.class);
+    public Results<TradeMergePayDto> mergeTrade(TradeMergeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MERGE_TRADE_PATH);
     }
 
     @Override
-    public TyhTradeResponse closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, MERGE_TRADE_CLOSE_PATH));
+    public Results<String> closeMergeTrade(TradeMergeCloseCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MERGE_TRADE_CLOSE_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeQuery(TradeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_QUERY_PATH), TradeQueryResultDto.class);
+    public Results<TradeQueryResultDto> tradeQuery(TradeQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_QUERY_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeMergeQuery(TradeMergeQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_MERGE_QUERY_PATH), TradeMergeQueryResultDto.class);
+    public Results<TradeMergeQueryResultDto> tradeMergeQuery(TradeMergeQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_MERGE_QUERY_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeRefund(TradeRefundCmd cmd) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(cmd, TRADE_REFUND_PATH));
+    public Results<String> tradeRefund(TradeRefundCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_REFUND_PATH);
     }
 
     @Override
-    public TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception {
-        return TyhTradeResponse.build(generalPostRequest(query, TRADE_REFUND_QUERY_PATH), TradeRefundResultDto.class);
+    public Results<TradeRefundResultDto> tradeRefundQuery(TradeRefundQuery query) throws Exception {
+        return generalPostRequest(query, TRADE_REFUND_QUERY_PATH);
     }
 
     @Override
