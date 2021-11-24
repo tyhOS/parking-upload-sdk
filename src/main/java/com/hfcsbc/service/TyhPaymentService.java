@@ -23,21 +23,21 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String SIGN_TYPE = "RSA";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/buyerId/open";
+    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/buyerId/v1/open";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_PATH = "/trade/open";
-    public static final String TRADE_CLOSE_PATH = "/trade/close/open";
-    public static final String MERGE_TRADE_PATH = "/trade/merge/open";
-    public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/open";
+    public static final String TRADE_PATH = "/trade/v1/open";
+    public static final String TRADE_CLOSE_PATH = "/trade/close/v1/open";
+    public static final String MERGE_TRADE_PATH = "/trade/merge/v1/open";
+    public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/v1/open";
 
     /* -------------------------- 交易查询 -------------------------- */
-    public static final String TRADE_QUERY_PATH = "/query/trade";
-    public static final String TRADE_MERGE_QUERY_PATH = "/query/merge/trade";
-    public static final String TRADE_REFUND_QUERY_PATH = "/query/refund";
+    public static final String TRADE_QUERY_PATH = "/query/trade/v1/open";
+    public static final String TRADE_MERGE_QUERY_PATH = "/query/merge/trade/v1/open";
+    public static final String TRADE_REFUND_QUERY_PATH = "/query/refund/v1/open";
 
     /* -------------------------- 退款相关 --------------------------- */
-    public static final String TRADE_REFUND_PATH = "/refund/open";
+    public static final String TRADE_REFUND_PATH = "/refund/v1/open";
 
 
     private final Options options;
