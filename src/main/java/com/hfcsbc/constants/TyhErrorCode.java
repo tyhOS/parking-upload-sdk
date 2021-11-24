@@ -27,6 +27,7 @@ public enum TyhErrorCode {
     NO_VALUE_PRESENT(2004,"找不到有效数据"),
     TOO_MANY_REQUESTS(2005, "请求过频繁"),
     FAILED_DELETE(2006,"删除失败"),
+    NOT_ALLOW_UPLOAD(2007, "未开启上传"),
 
     // 没有捕获的异常
     INTERNAL_SERVER(5000, "服务器内部错误");

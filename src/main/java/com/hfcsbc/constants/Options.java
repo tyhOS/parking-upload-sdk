@@ -8,4 +8,6 @@ public interface Options {
 
   String getRestHost();
 
+  Boolean getAllowUpload();
+
 }

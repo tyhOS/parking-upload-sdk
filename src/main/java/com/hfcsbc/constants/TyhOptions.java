@@ -18,6 +18,8 @@ public class TyhOptions implements Options {
 
   private String secretKey;
 
+  private Boolean allowUpload;
+
   @Override
   public String getAccessId() {
     return this.accessId;
@@ -31,6 +33,11 @@ public class TyhOptions implements Options {
   @Override
   public String getRestHost() {
     return this.restHost;
+  }
+
+  @Override
+  public Boolean getAllowUpload() {
+    return this.allowUpload;
   }
 
 }

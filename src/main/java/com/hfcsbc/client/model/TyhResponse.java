@@ -47,4 +47,5 @@ public class TyhResponse {
                 .data(JSON.toJSONString(obj))
                 .build();
     }
+
 }

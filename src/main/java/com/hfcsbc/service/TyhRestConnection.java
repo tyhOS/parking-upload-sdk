@@ -13,6 +13,7 @@ import com.hfcsbc.constants.TyhErrorCode;
 import com.hfcsbc.constants.TyhException;
 import com.hfcsbc.utils.ConnectionFactory;
 import com.hfcsbc.utils.RSA2Utils;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -48,6 +49,9 @@ public class TyhRestConnection {
 
     public TyhResponse executePostWithSignature(String path, TyhRequest tyhRequest) throws Exception {
         Options options = this.getOptions();
+        if (!options.getAllowUpload()) {
+            return TyhResponse.FAIL(TyhErrorCode.NOT_ALLOW_UPLOAD);
+        }
 
         String content = tyhRequest.getAccessId() + tyhRequest.getData()
                 + tyhRequest.getSignType() + tyhRequest.getTimeStamp();
