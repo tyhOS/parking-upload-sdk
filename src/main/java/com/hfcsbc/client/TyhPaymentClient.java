@@ -1,7 +1,7 @@
 package com.hfcsbc.client;
 
 import com.hfcsbc.client.command.trade.*;
-import com.hfcsbc.client.model.TyhResponse;
+import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.client.model.TyhTradeResponse;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhPaymentService;
@@ -61,6 +61,12 @@ public interface TyhPaymentClient {
      * 查询交易退款结果
      */
     TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception;
+
+
+    /**
+     * 根据传参，获取加密后的请求参数
+     */
+    TyhRequest obtainSignRequestParam(Object param)  throws Exception;
 
 
 }

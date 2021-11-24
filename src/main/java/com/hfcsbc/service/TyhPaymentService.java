@@ -11,7 +11,6 @@ import com.hfcsbc.constants.Options;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Date;
 
 /**
  * @Author Liu Chong
@@ -52,7 +51,7 @@ public class TyhPaymentService implements TyhPaymentClient {
     public TyhResponse generalPostRequest(Object object, String path) throws Exception {
         byte[] data = JSON.toJSONString(object).getBytes(StandardCharsets.UTF_8);
         TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-                .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+                .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
                 .data(new String(Base64.encode(data))).build();
         return restConnection.executePostWithSignature(path, tyhRequest);
     }
@@ -100,5 +99,14 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public TyhTradeResponse tradeRefundQuery(TradeRefundQuery query) throws Exception {
         return TyhTradeResponse.build(generalPostRequest(query, TRADE_REFUND_QUERY_PATH), TradeRefundResultDto.class);
+    }
+
+    @Override
+    public TyhRequest obtainSignRequestParam(Object param) throws Exception {
+        byte[] data = JSON.toJSONString(param).getBytes(StandardCharsets.UTF_8);
+        TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
+                .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
+                .data(new String(Base64.encode(data))).build();
+        return restConnection.obtainSignRequestParam(tyhRequest);
     }
 }
