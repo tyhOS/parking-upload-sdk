@@ -1,10 +1,11 @@
 package com.hfcsbc.example;
 
 import com.hfcsbc.client.TyhUploadClient;
-import com.hfcsbc.client.command.upload.OpenParkingDriveInCmd;
-import com.hfcsbc.client.command.upload.OpenParkingDriveOutCmd;
-import com.hfcsbc.client.command.upload.OpenParkingSurplusCmd;
-import com.hfcsbc.client.model.TyhResponse;
+import com.hfcsbc.client.command.upload.*;
+import com.hfcsbc.client.dto.OpenParkingCheckRecordDto;
+import com.hfcsbc.client.dto.OpenParkingUIDDto;
+import com.hfcsbc.client.model.Results;
+import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.TyhConstants;
 import com.hfcsbc.constants.TyhOptions;
 import org.junit.Test;
@@ -55,8 +56,38 @@ public class UploadTest {
 //                .outChannel("西出口")
 //                .build();
 
+        // 图片上传
+//        OpenParkingImageCmd cmd = OpenParkingImageCmd.builder()
+//                .osStoreId(OS_STORE_ID)
+//                .carPlate("皖Axxxxx")
+//                .carPlateColor(TyhConstants.CarPlateColor.BLUE)
+//                .orderId("order123456662")
+//                .content("TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4")
+//                .source(TyhConstants.ImageSource.DRIVE_IN)
+//                .build();
 
-//        TyhResponse reponse = client.uploadDriveOut(cmd);
+//        // 心跳数据
+//        OpenParkingHeartbeatCmd cmd = OpenParkingHeartbeatCmd.builder()
+//                .osStoreId(OS_STORE_ID)
+//                .uploadTime(uploadTime)
+//                .build();
+
+        // 停车场日对账
+//        OpenParkingCheckRecordCmd cmd = OpenParkingCheckRecordCmd.builder()
+//                .osStoreId(OS_STORE_ID)
+//                .checkDate(DateUtil.stringToDate("2021-11-11", "yyyy-MM-dd"))
+//                .driveInNum(200)
+//                .driveOutNum(203)
+//                .build();
+
+        // 对账日开放平台order_id获取
+//        OpenParkingUIDCmd cmd = OpenParkingUIDCmd.builder()
+//                .osStoreId(OS_STORE_ID)
+//                .checkDate(DateUtil.stringToDate("2021-11-11", "yyyy-MM-dd"))
+//                .type(TyhConstants.DriveType.DRIVE_IN)
+//                .build();
+
+//        Results<OpenParkingUIDDto> results = client.uploadUID(cmd);
 
 //        OpenParkingSurplusCmd openParkingSurplusCmd = OpenParkingSurplusCmd.builder()
 //                .parkingCode(PARKING_CODE)
