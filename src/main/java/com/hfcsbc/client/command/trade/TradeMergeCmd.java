@@ -19,12 +19,6 @@ import java.util.List;
 public class TradeMergeCmd {
 
     /**
-     * 平台分配服务商ID
-     */
-    @NotNull
-    private Long osPartnerId;
-
-    /**
      * 支付渠道 {@link PayConstant.PayChannel}
      */
     @NotNull

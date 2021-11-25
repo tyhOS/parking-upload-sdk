@@ -12,10 +12,6 @@ import lombok.Data;
 @Builder
 public class TradeMergeCloseCmd {
 
-    /**
-     * 暂时写死,后期通过网关统一从用户公钥私钥比对拿出来
-     */
-    private Long osPartnerId;
 
     /**
      * 商户自传的交易号 和 osMergeNo 不能同时为空

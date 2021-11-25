@@ -12,10 +12,6 @@ import lombok.Data;
 @Builder
 public class TradeCloseCmd {
 
-    /**
-     * 平台分配的服务商ID
-     */
-    private Long osPartnerId;
 
     /**
      * 交易订单号，要求唯一

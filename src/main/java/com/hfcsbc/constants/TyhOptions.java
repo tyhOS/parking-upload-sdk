@@ -39,7 +39,7 @@ public class TyhOptions implements Options {
 
   @Override
   public Boolean getAllowUpload() {
-    return this.allowUpload;
+    return this.allowUpload == null ? Boolean.TRUE : this.allowUpload;
   }
 
 }

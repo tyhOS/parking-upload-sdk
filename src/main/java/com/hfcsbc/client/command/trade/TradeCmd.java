@@ -17,11 +17,6 @@ import java.util.Date;
 @Builder
 public class TradeCmd {
 
-    /**
-     * 平台分配的服务商ID
-     */
-    @NotNull
-    private Long osPartnerId;
 
     /**
      * 平台分配的商户ID

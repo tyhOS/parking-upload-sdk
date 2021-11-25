@@ -12,10 +12,6 @@ import lombok.Data;
 @Builder
 public class TradeQuery {
 
-    /**
-     * 开放平台商户ID
-     */
-    private Long osPartnerId;
 
     /**
      * 商户自传的交易号,和osTradeNo/tpTradeNo 不能同时为空

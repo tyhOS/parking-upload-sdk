@@ -12,10 +12,6 @@ import lombok.Data;
 @Builder
 public class TradeMergeQuery {
 
-    /**
-     * 平台分配服务商ID
-     */
-    private Long osPartnerId;
 
     /**
      * 商户自传,合并交易单号

@@ -14,10 +14,6 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class TradeRefundCmd {
 
-    /**
-     * 平台分配服务商ID
-     */
-    private Long osPartnerId;
 
     /**
      * 商户自传的交易号,和osTradeNo/tpTradeNo 不能同时为空
