@@ -41,7 +41,7 @@ public class TyhUploadService implements TyhUploadClient {
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_SURPLUS, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_SURPLUS, tyhRequest, String.class);
   }
 
   @Override
@@ -50,7 +50,7 @@ public class TyhUploadService implements TyhUploadClient {
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IN, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IN, tyhRequest, String.class);
   }
 
   @Override
@@ -59,7 +59,7 @@ public class TyhUploadService implements TyhUploadClient {
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_OUT, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_OUT, tyhRequest, String.class);
   }
 
   @Override
@@ -68,7 +68,7 @@ public class TyhUploadService implements TyhUploadClient {
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IMAGE, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IMAGE, tyhRequest, String.class);
   }
 
   @Override
@@ -77,7 +77,7 @@ public class TyhUploadService implements TyhUploadClient {
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
             .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_HEARTBEAT, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_HEARTBEAT, tyhRequest, OpenParkingHeartbeatDto.class);
   }
 
   @Override
@@ -88,7 +88,7 @@ public class TyhUploadService implements TyhUploadClient {
             .signType(SIGN_TYPE)
             .data(new String(Base64.encode(data)))
             .build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_CHECK_RECORD, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_CHECK_RECORD, tyhRequest, OpenParkingCheckRecordDto.class);
   }
 
   @Override
@@ -99,7 +99,7 @@ public class TyhUploadService implements TyhUploadClient {
             .signType(SIGN_TYPE)
             .data(new String(Base64.encode(data)))
             .build();
-    return restConnection.executePostWithSignature(POST_UPLOAD_UID, tyhRequest);
+    return restConnection.executePostWithSignature(POST_UPLOAD_UID, tyhRequest, OpenParkingUIDDto.class);
   }
 
 

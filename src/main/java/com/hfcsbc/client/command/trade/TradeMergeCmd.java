@@ -33,8 +33,9 @@ public class TradeMergeCmd {
 
     /**
      * 绝对超时时间，超出该时间则支付失效
+     * 格式：yyyy-MM-dd HH:mm:ss
      */
-    private Date timeExpire;
+    private String timeExpire;
 
     /**
      * 交易子单详情

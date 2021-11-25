@@ -3,6 +3,7 @@ package com.hfcsbc.client.command.trade;
 import com.hfcsbc.constants.PayConstant;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -77,8 +78,9 @@ public class TradeCmd {
 
     /**
      * 绝对超时时间，超出该时间则支付失效
+     * 格式：yyyy-MM-dd HH:mm:ss
      */
-    private Date timeExpire;
+    private String timeExpire;
 
     /**
      * 支付宝或微信的买家id，小程序必传

@@ -42,6 +42,14 @@ public class Results<T> {
         this.data = data;
     }
 
+    public Results(int code, String msg, T data, Object error) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+        this.error = error;
+    }
+
+
     public static <T> Results<T> success(T data) {
         return new Results<T>(Code.SUCCESS, data);
     }

@@ -2,6 +2,8 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+import com.hfcsbc.client.dto.trade.TradePayDto;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
@@ -44,7 +46,7 @@ public class TyhRestConnection {
         }
     }
 
-    public <T> Results<T> executePostWithSignature(String path, TyhRequest tyhRequest) throws Exception {
+    public <T> Results<T> executePostWithSignature(String path, TyhRequest tyhRequest, Class<T> tClass) throws Exception {
         Options options = this.getOptions();
         if (!options.getAllowUpload()) {
             return Results.failure(null, "未开启请求配置");
@@ -59,11 +61,11 @@ public class TyhRestConnection {
                 .addHeader("Content-Type", "application/json").build();
 
         String resp = ConnectionFactory.execute(executeRequest);
-        return checkAndGetResponse(resp);
+        return checkAndGetResponse(resp, tClass);
     }
 
 
-    private <T> Results<T> checkAndGetResponse(String resp) {
+    private <T> Results<T> checkAndGetResponse(String resp, Class<T> tClass) {
         JSONObject json = JSON.parseObject(resp);
         try {
             if (json.containsKey("code")) {
@@ -78,8 +80,7 @@ public class TyhRestConnection {
         } catch (Exception e) {
             throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[ERROR] Unexpected error: " + e.getMessage());
         }
-
-        return JSON.toJavaObject(json, Results.class);
+        return new Results<>(json.getInteger("code"), json.getString("msg"), json.getObject("data", tClass), json.get("error"));
     }
 
     public TyhRequest obtainSignRequestParam(TyhRequest tyhRequest) throws Exception {
