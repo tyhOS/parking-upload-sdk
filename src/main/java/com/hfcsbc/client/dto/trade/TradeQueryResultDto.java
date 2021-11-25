@@ -1,6 +1,8 @@
 package com.hfcsbc.client.dto.trade;
 
+import com.hfcsbc.constants.PayConstant;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -28,8 +30,9 @@ public class TradeQueryResultDto {
     private String osTradeNo;
 
     /**
-     * 交易状态
+     * 交易状态 {@link PayConstant.TradeStatus}
      */
+    @PayConstant.TradeStatus
     private String tradeStatus;
 
     /**
@@ -65,16 +68,19 @@ public class TradeQueryResultDto {
     /**
      * 下单时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date createdDate;
 
     /**
      * 支付完成时间
      */
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date payDate;
 
     /**
      * 支付渠道
      */
+    @PayConstant.PayChannel
     private String payChannel;
 
     /**
