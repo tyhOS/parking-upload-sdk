@@ -3,11 +3,9 @@ package com.hfcsbc.client.command.trade;
 import com.hfcsbc.constants.PayConstant;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 /**
  * @Author Liu Chong
@@ -43,10 +41,10 @@ public class TradeCmd {
     private String payChannel;
 
     /**
-     * 支付产品 {@link PayConstant.PayProductCode}
+     * 支付产品 {@link PayConstant.PayProduct}
      */
     @NotNull
-    @PayConstant.PayProductCode
+    @PayConstant.PayProduct
     private String payProduct;
 
     /**

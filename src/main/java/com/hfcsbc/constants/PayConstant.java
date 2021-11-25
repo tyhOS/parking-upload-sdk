@@ -163,7 +163,7 @@ public class PayConstant {
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
-    public @interface PayProductCode {
+    public @interface PayProduct {
         String APP = "APP";
         String MINI_APP = "MINI_APP";
         String M_WEB = "M_WEB";

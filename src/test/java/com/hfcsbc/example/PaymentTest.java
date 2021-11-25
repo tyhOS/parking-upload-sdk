@@ -34,7 +34,7 @@ public class PaymentTest {
                 .osStoreId(3163757684139653L)
                 .ownerTradeNo("owner_trade_118888806")
                 .payChannel(PayConstant.PayChannel.ALI_PAY)
-                .payProduct(PayConstant.PayProductCode.USER_QR)
+                .payProduct(PayConstant.PayProduct.USER_QR)
                 .title("支付标题")
                 .remark("给支付平台的附加信息，支付平台会原封回调给对用方")
                 .orderFee(1) //订单金额，最小单位分

@@ -6,7 +6,6 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,7 +25,7 @@ public class TradeMergeCmd {
     private String payChannel;
 
     /**
-     * 支付产品 {@link PayConstant.PayProductCode}
+     * 支付产品 {@link PayConstant.PayProduct}
      */
     @NotNull
     private String payProduct;

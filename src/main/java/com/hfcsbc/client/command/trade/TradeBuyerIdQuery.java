@@ -32,7 +32,7 @@ public class TradeBuyerIdQuery {
      * 支付产品
      */
     @NotEmpty
-    @PayConstant.PayProductCode
+    @PayConstant.PayProduct
     private String payProduct;
 
 }
