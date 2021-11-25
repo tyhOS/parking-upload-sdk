@@ -16,36 +16,36 @@ import org.junit.Test;
 public class PaymentTest {
 
     public static final Long OS_STORE_ID = 300001L;
-    public static final String ACCESS_ID  = "16327134271655855";
-    public static final String SECRET_KEY = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCkF3fmmuHSl5vzJNBFUImPj5RJhpX32IKKizk6WfS+zvtNjoBItxbUBbKXcnt6PqCsH/hol0ofQVN7VvJorwNYRk12XNbMUIyek8TBVIBzwloAj4kyUlxv2YaEVakbUP8lJzW50WtqOrJs+DH2if6M6OSq/hEzrmnYIPdcezOnysYZGAwmrY+mtuPaPiLsWmNjYMEE+XnJfSq9/UcMC+gdUuLtwKUvSRjqKv0xIqZJEnR9OI872/6feWiC4PFVxOHjlPYZQGhNmnftXzgofcx9jlknHq+1DpOm4a/YUnDPMn57AmIDJAh/tiUwoIRttt2YxCSH1ykH45HuhdSfP+0XAgMBAAECggEAB0snwC9INFUa0G7ldv9CbggivjXmOpL8Em5nx8kx0L1gfC0GVLUWpavvKT4kcOWRvLTbFMMMv2Dm9geCVNbanjTZwpYT0hcOeQn2Z+V6pCqSV44JuhvhEfOoP/+Sua0a+irI/45oaNtdDOznQ58UmmzLpTIPz61D9SBZ/llXjXCqUSb6Fr0neBI1BHewBCZxjdiyl8+1yc7XuBnHYkvdDNn6o0yqKvgbt34OIo0MyG5hlgfG2spkWZJzwKXaOoCYx+RWTm7QZCg09BuuE5LZDO4PLLBng82FZykO28Ty8cKkoaZRt/8qXPQNFv7E41OPHCOOx6bpbuBqPZYpjfx8WQKBgQD6bU2TOLkJX+hopq8No1ROdyCibir+HJ2p417Uu/ZSR09gVQCfF8b2sC07r7jPP0qhEYFf2c9rC8KLDy+QRZAxRKQkImhv3eC53MzEqnjbhOx5jQ1N9Tu6iadt9CaxQ0BgQPnKn7QcDlol7Xvn2xDkpwQSG4f3BOpuxQh69NsnMwKBgQCnvk7jpKPrJS0fTjaLJi6fDDek6nGKCtnroq6pfv3TpFuc2VETZOh0seHXmTaTU6zBuGeS/cES1UqnZVChzRRTElG8ipACuJ1vS3wzZ3C3sRY4S/pWvvEPt4H3pXCsPPnnttSIa7VRlZ5Bm+qILQR+uiZ2Jo7m+qNENJ2ArA9SjQKBgHQyjWE3W5w+9S7B0M3qMC8sVWco6Sf5jSqMBq98+6FX1zvilSQ8uyQxwPtF4OHBA1bTMY2RGg4Yac9uX2p47Jv/to3RrVXixOhYzGaglu18suD/kuHOXUWDo72AIQf1JYTEAWOEUOUHv8qDdA+z9RWzbU8dmSwECucU44dx39JDAoGBAIw70G4FpTgfc1KZq4W3HQDAUQChMtxp5/dToNt4nDFEVYaSM3KYSLHOSHVa1EJkkKe/R2+ejrv07p11WOx7q4MrbIPH/08XEh8KJ0I+NwCKnn3gHuBIbvVpv9DOUZzcuTvbIGEQUpxrDcvh0jeYEwrzCtZ5s7wsSzPpHMeGkKS9AoGBAO3UyIaEa6OIpA/Y985lw5jE1fW+suunf1/Htv/cG1fteOKlt+eCsdvjXADNgJaPcz2jHNZBur9vtn/3BQXqO2fz4RiSZuqG9t/eKgyvmEY2H7lgrrU4Zg8Q5w8e4UKyIuw9gNcjMnrOnJz1AHyCT2CbpyMBly/1f8n4fhg4/yXY";
+    public static final String ACCESS_ID = "16373180971704771";
+    public static final String SECRET_KEY = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCNkZ2ix1vBH4VFK29wkg18BOHy4AxLupglYqVwkp++a2fl6e9Q9sF7NlGADeoLnHfpJHIsgyxBpoKiJ23WPHOYPN4p9UljPyfsfZkTAE10MmpcfkAvNUWlurBvEzYR6QiXsaZdRM008NGtOOzjALCnASZXbefvWsuo5RofK/n7EweWMvVmCx1hRLX5OlkjCd7Z3+VDOpEuNtdUpsC2ASqDWsJanrePtJbX2xCaZQH40NCMvNeIJNobMNXjuUB46Nfy6X7DDIYJCWm9K+tvIVOqj30Qd77vV3lOUigIzBnQSZNT5Vm+HLk3IcptL5qvy2yqScyq7NZIGSZiSyVuJ/gLAgMBAAECggEADt9eZSx2ejp6gMLIaVYeronAxwg8onQO6daMNOBigdm8x42lA6d4uh4Bv+c2UFP20PpwODbrnlYE4U4tHtWo+zRhzpyjQhbvdcvYGgPtHyjwvZjR22PIVlnfkTu+cXE+4tjZ9nB08nveO0mAsXRwGotnYMX+GMo8HRk8fkvbbkHwboy5+tYwovm2QA3D2zeZRm9c+bZ7NrhwratqZTSkHnmgMbHQd75KcN92G/jcz6kxxhz0T7jyJgtoZYF/40UqHC8hsV4hK/QkwqL3kB6T8MF3FhBpb2iAt4Z/39nEm5IGl/hyNpN3Ot54Kj6tQ7fIVU+B+g+iAMcbFTxQy6zJUQKBgQDMmUT0Oh9lbbG0KbTpCoTiOtcgqFr+iUJNpziZG5EH40ziUaUjTpvbVy27EkV6EDD/SPSefqLs5fpDdnDikU+lSqvwMYMXtrvk5w4aVt7WePQZd543lPdfEpwWgCI9lC1/jMkYf6E8L1rOW/7PIpzh0g2LTtY+fGhVKB9cefncyQKBgQCxIpbna6UXgPcq8WTLkJnwdhwpcMQZDQENq6RdMnAWBB8HSaJ0etmEBUXRvdpEs2qOZkwhNx7gtwhzFd76Q8V3xB5BBl7DR6guD6XI8tlfXHaMGye0WavWj3mO3L72eRCn/IoyLzZfrl11xn9OHvjGXrrGoxVwG15HHpqpT+McMwKBgQCSKQQrfMIlEWIblJfay1r2ypYYjGzE3YVyN/2k0x6ehfDM1Qql2GhbH0JaG8lqU9rM5G9sModtuTU5sIkgMjK1oEyIQLan4DEGa1GV221BxhKLhvqONmspjf/Xyx2q5ApEzmxyherHNgUm2m2Dx/RPFmH6nQ1Mgk9+VjVhOPoYkQKBgDlO2ommrvPquoy/KoAdmWBNphDWNetw5J1aocOxNMg6rxs5fIC42jS3S/5usPY3IctOV2ULo0bKkMZDFi/by0BTSAJ7oB8HyOaWE2nu/9q1XHk5s9/KfyjcpFRPIM03H+dpcgCIe8v66qvW+4r3xD7RmRX430+02wyhXyJWAUE3AoGBAIs761FlkuQkc5aNdoDAYGq1Ko0QSVjpPDAdPZL4kKluc9Am+xC1oHiXaVBVpLzecWgtPIOwtojHKmcpaF4wXPEfSE1NqiXpFAegMOFJchKUX1yfRlf6x4HYh1ithw9lbnYXHxa+KKte8Y39yYbOHtUl1CM0XiDG3Ud34YAmevqz";
 
     @Test
-    public void paymentTest()  {
+    public void paymentTest() {
 
         TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .restHost("http://192.168.1.42:9008")
                 .accessId(ACCESS_ID)
                 .secretKey(SECRET_KEY)
                 .allowUpload(Boolean.TRUE)
                 .build());
 
         TradeCmd tradeCmd = TradeCmd.builder()
-                .osMerchantId(2293839381L)
-                .osStoreId(39819018L)
-                .ownerTradeNo("owner_trade_32192182")
+                .osMerchantId(2163737276721967L)
+                .osStoreId(3163757684139653L)
+                .ownerTradeNo("owner_trade_118888806")
                 .payChannel(PayConstant.PayChannel.ALI_PAY)
-                .payProduct(PayConstant.PayProductCode.MINI_APP)
-                .payBusiness("支付业务类别")
+                .payProduct(PayConstant.PayProductCode.USER_QR)
                 .title("支付标题")
                 .remark("给支付平台的附加信息，支付平台会原封回调给对用方")
                 .orderFee(1) //订单金额，最小单位分
                 .timeExpire("2021-11-26 20:18:39")
                 .notifyUrl("https开头的回调地址")
-                .buyerId("仅小程序或手机网页支付必传")
                 .build();
 
         try {
             Results<TradePayDto> results = client.trade(tradeCmd);
             //获取支付结果
+            TradePayDto dto1 = results.getData();
             TradePayDto dto = results != null && results.ifSuccess() ? results.getData() : null;
         } catch (Exception e) {
             e.printStackTrace();
