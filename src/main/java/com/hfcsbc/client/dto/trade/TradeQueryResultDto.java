@@ -66,16 +66,14 @@ public class TradeQueryResultDto {
     private Long osStoreId;
 
     /**
-     * 下单时间
+     * 下单时间, 返回时间戳 标准北京时间
      */
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date createdDate;
+    private Long createdTime;
 
     /**
-     * 支付完成时间
+     * 支付完成时间, 返回时间戳 标准北京时间
      */
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date payDate;
+    private Long payTime;
 
     /**
      * 支付渠道 {@link PayConstant.PayChannel}

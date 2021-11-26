@@ -18,7 +18,7 @@ public class TradeMergePayDto {
     /**
      * 时间戳，标准北京时间
      */
-    private String timestamp;
+    private Long timestamp;
 
     /**
      * 调起支付的签名信息

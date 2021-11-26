@@ -75,10 +75,9 @@ public class TradeCmd {
     private String notifyUrl;
 
     /**
-     * 绝对超时时间，超出该时间则支付失效
-     * 格式：yyyy-MM-dd HH:mm:ss
+     * 绝对超时时间，超出该时间则支付失效， 时间戳，精确到毫秒
      */
-    private String timeExpire;
+    private Long timeExpire;
 
     /**
      * 支付宝或微信的买家id，小程序必传

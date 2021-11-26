@@ -62,7 +62,11 @@ public class TyhRestConnection {
                 .addHeader("Content-Type", "application/json").build();
 
         String resp = ConnectionFactory.execute(executeRequest);
-        return checkAndGetResponse(requestUrl, resp, tClass);
+        Results<T> results = checkAndGetResponse(requestUrl, resp, tClass);
+
+        log.info("[请求地址]：" + requestUrl);
+        log.info("[响应参数]" + JSON.toJSONString(results));
+        return results;
     }
 
 
@@ -71,10 +75,7 @@ public class TyhRestConnection {
         if (!json.containsKey("code") || !json.containsKey("data")) {
             return Results.failure();
         }
-        Results<T> results = new Results<>(json.getInteger("code"), json.getString("msg"), json.getObject("data", tClass), json.get("error"));
-        log.info("[Request URL]{}", requestUrl);
-        log.info("[Response ]{}", results);
-        return results;
+        return new Results<>(json.getInteger("code"), json.getString("msg"), json.getObject("data", tClass), json.get("error"));
     }
 
     public TyhRequest obtainSignRequestParam(TyhRequest tyhRequest) throws Exception {
