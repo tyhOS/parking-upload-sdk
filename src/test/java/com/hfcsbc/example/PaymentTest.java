@@ -47,7 +47,7 @@ public class PaymentTest {
 //                .title("支付标题")
 //                .remark("给支付平台的附加信息，支付平台会原封回调给对用方")
 //                .orderFee(1) //订单金额，最小单位分
-//                .timeExpire("2021-11-26 20:18:39")
+//                .timeExpire(System.currentTimeMillis() + 1000 * 60 * 10)
 //                .notifyUrl("https开头的回调地址")
 //                .build();
 
@@ -74,7 +74,7 @@ public class PaymentTest {
         TradeMergeCmd cmd = TradeMergeCmd.builder()
                 .payChannel(PayConstant.PayChannel.WX_PAY)
                 .payProduct(PayConstant.PayProduct.USER_QR)
-                .timeExpire(String.valueOf(System.currentTimeMillis() + 1000 * 60 * 10))
+                .timeExpire(System.currentTimeMillis() + 1000 * 60 * 10)
                 .subTradeOrders(subList)
                 .build();
 
