@@ -102,7 +102,7 @@ public class TradeMergeCmd {
         private String notifyUrl;
 
         /**
-         * 支付业务,传入此值会进行校验,未指定时,不传
+         * 支付业务,传入此值会进行校验,未指定或未在平台登记过业务,可不传
          */
         private String payBusiness;
 

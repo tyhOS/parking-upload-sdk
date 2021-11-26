@@ -58,7 +58,6 @@ public class ConnectionFactory {
     Response response = null;
     String str = null;
     try {
-      log.info("[Request URL]{}", request.url());
       response = client.newCall(request).execute();
       if (response.code() != 200) {
         throw new TyhException(TyhErrorCode.REQUEST_NETWORKS_ERROR.getCode(), "[Execute] Response Status Error : " + response.code() + " message:" + response.message());
@@ -69,7 +68,6 @@ public class ConnectionFactory {
       } else {
         throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
       }
-      log.debug("[Response]{}", str);
       return str;
     } catch (IOException e) {
       e.printStackTrace();

@@ -11,6 +11,7 @@ import com.hfcsbc.constants.TyhErrorCode;
 import com.hfcsbc.constants.TyhException;
 import com.hfcsbc.utils.ConnectionFactory;
 import com.hfcsbc.utils.RSA2Utils;
+import lombok.extern.slf4j.Slf4j;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -19,7 +20,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.PrivateKey;
 
-
+@Slf4j
 public class TyhRestConnection {
     private static final MediaType JSON_TYPE = MediaType.parse("application/json; charset=utf-8");
 
@@ -61,31 +62,22 @@ public class TyhRestConnection {
                 .addHeader("Content-Type", "application/json").build();
 
         String resp = ConnectionFactory.execute(executeRequest);
-        return checkAndGetResponse(resp, tClass);
+        return checkAndGetResponse(requestUrl, resp, tClass);
     }
 
 
-    private <T> Results<T> checkAndGetResponse(String resp, Class<T> tClass) {
+    private <T> Results<T> checkAndGetResponse(String requestUrl, String resp, Class<T> tClass) {
         JSONObject json = JSON.parseObject(resp);
-        try {
-            if (json.containsKey("code")) {
-                Integer code = json.getInteger("code");
-                if (!code.equals(TyhErrorCode.SUCCESS.getCode())) {
-                    String msg = json.getString("msg");
-                    throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Executing] " + code + ": " + msg);
-                }
-            } else {
-                throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[ERROR] Response code cannot be found in response.");
-            }
-        } catch (Exception e) {
-            throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[ERROR] Unexpected error: " + e.getMessage());
+        if (!json.containsKey("code") || !json.containsKey("data")) {
+            return Results.failure();
         }
-        return new Results<>(json.getInteger("code"), json.getString("msg"), json.getObject("data", tClass), json.get("error"));
+        Results<T> results = new Results<>(json.getInteger("code"), json.getString("msg"), json.getObject("data", tClass), json.get("error"));
+        log.info("[Request URL]{}", requestUrl);
+        log.info("[Response ]{}", results);
+        return results;
     }
 
     public TyhRequest obtainSignRequestParam(TyhRequest tyhRequest) throws Exception {
-        Options options = this.getOptions();
-
         String content = tyhRequest.getAccessId() + tyhRequest.getData()
                 + tyhRequest.getSignType() + tyhRequest.getTimeStamp();
         tyhRequest.setSign(RSA2Utils.doSign(content, "utf-8", privateKey));

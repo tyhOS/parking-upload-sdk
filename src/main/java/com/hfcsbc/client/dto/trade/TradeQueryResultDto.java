@@ -78,14 +78,15 @@ public class TradeQueryResultDto {
     private Date payDate;
 
     /**
-     * 支付渠道
+     * 支付渠道 {@link PayConstant.PayChannel}
      */
     @PayConstant.PayChannel
     private String payChannel;
 
     /**
-     * 支付产品类型
+     * 支付产品类型 {@link PayConstant.PayProduct}
      */
+    @PayConstant.PayProduct
     private String payProduct;
 
     /**
