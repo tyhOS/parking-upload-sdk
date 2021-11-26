@@ -1,6 +1,7 @@
 package com.hfcsbc.client.command.upload;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.hfcsbc.constants.TyhConstants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,55 +22,45 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingDriveOutCmd {
 
-    @JSONField(name = "os_store_id")
-    @NotNull(message = "os_store_id不可为空")
+    @NotNull(message = "osStoreId不可为空")
     private Long osStoreId;
 
-    @JSONField(name = "car_plate")
-    @NotNull(message = "car_plate不可为空")
+    @NotNull(message = "carPlate不可为空")
     private String carPlate;
 
-    @JSONField(name = "car_plate_color")
-    @NotNull(message = "car_plate_color不可为空")
+    @NotNull(message = "carPlateColor不可为空")
     private int carPlateColor;
 
-    @JSONField(name = "order_id")
-    @NotNull(message = "order_id不可为空")
+    @NotNull(message = "orderId不可为空")
     private String orderId;
 
-    @JSONField(name = "in_time")
-    @NotNull(message = "in_time不可为空")
-    private Date inTime;
+    @NotNull(message = "inTime不可为空")
+    private Long inTime;
 
-    @JSONField(name = "out_time")
-    @NotNull(message = "out_time不可为空")
-    private Date outTime;
+    @NotNull(message = "outTime不可为空")
+    private Long outTime;
 
     @NotNull(message = "duration不可为空")
     private Integer duration;
 
-    @JSONField(name = "park_type")
-    @NotNull(message = "park_type不可为空")
+    @NotNull(message = "parkType不可为空")
+    @TyhConstants.ParkType
     private Integer parkType;
 
-    @JSONField(name = "billing_amount")
-    @NotNull(message = "billing_amount不可为空")
+    @NotNull(message = "billingAmount不可为空")
     private Integer billingAmount;
 
-    @JSONField(name = "pay_type")
-    @NotNull(message = "pay_type不可为空")
-    private Integer payType;
-
-    @JSONField(name = "pay_amount")
-    @NotNull(message = "pay_amount不可为空")
+    @NotNull(message = "payAmount不可为空")
     private Integer payAmount;
 
-    @JSONField(name = "in_channel")
-    @NotNull(message = "in_channel不可为空")
+    @NotNull(message = "payType不可为空")
+    @TyhConstants.PayType
+    private Integer payType;
+
+    @NotNull(message = "inChannel不可为空")
     private String inChannel;
 
-    @JSONField(name = "out_channel")
-    @NotNull(message = "out_channel不可为空")
+    @NotNull(message = "outChannel不可为空")
     private String outChannel;
 
 }

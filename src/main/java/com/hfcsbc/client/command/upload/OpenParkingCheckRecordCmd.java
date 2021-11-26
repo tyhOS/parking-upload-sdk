@@ -1,6 +1,5 @@
 package com.hfcsbc.client.command.upload;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,23 +22,19 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingCheckRecordCmd {
 
-    @JSONField(name = "os_store_id")
-    @NotNull(message = "os_store_id不可为空")
+    @NotNull(message = "osStoreId不可为空")
     private Long osStoreId;
 
-    @JSONField(name = "check_date")
-    @NotNull(message = "check_date不可为空")
+    @NotNull(message = "checkDate不可为空")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkDate;
 
-    @JSONField(name = "drive_in_num")
-    @NotNull(message = "drive_in_num不可为空")
-    @Min(value = 0, message = "drive_in_num不可小于0")
+    @NotNull(message = "driveInNum不可为空")
+    @Min(value = 0, message = "driveInNum不可小于0")
     private Integer driveInNum;
 
-    @JSONField(name = "drive_out_num")
-    @NotNull(message = "drive_out_num不可为空")
-    @Min(value = 0, message = "drive_out_num不可小于0")
+    @NotNull(message = "driveOutNum不可为空")
+    @Min(value = 0, message = "driveOutNum不可小于0")
     private Integer driveOutNum;
 
 }

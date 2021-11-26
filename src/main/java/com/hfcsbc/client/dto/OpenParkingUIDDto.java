@@ -20,7 +20,6 @@ import java.util.List;
 @NoArgsConstructor
 public class OpenParkingUIDDto {
 
-    @JSONField(name = "order_id_list")
     private List<String> orderIdList;
 
 }

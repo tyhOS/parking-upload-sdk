@@ -20,11 +20,9 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OpenParkingHeartbeatCmd {
 
-    @JSONField(name = "os_store_id")
-    @NotNull(message = "os_store_id不可为空")
+    @NotNull(message = "osStoreId不可为空")
     private Long osStoreId;
 
-    @JSONField(name = "upload_time")
-    @NotNull(message = "upload_time不可为空")
+    @NotNull(message = "uploadTime不可为空")
     private Long uploadTime;
 }
