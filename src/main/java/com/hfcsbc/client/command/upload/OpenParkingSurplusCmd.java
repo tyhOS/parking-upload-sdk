@@ -20,8 +20,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OpenParkingSurplusCmd {
 
-    @JSONField(name = "os_store_id")
-    @NotNull(message = "os_store_id不可为空")
+    @NotNull(message = "osStoreId不可为空")
     private Long osStoreId;
 
     @NotNull(message = "total不可为空")

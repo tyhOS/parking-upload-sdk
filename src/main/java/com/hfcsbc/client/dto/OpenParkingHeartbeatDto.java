@@ -14,6 +14,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class OpenParkingHeartbeatDto {
 
-    @JSONField(name = "server_time")
     private Long serverTime;
 }

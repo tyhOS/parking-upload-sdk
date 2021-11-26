@@ -23,12 +23,10 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingUIDCmd {
 
-    @JSONField(name = "os_store_id")
-    @NotNull(message = "parking_code不可为空")
+    @NotNull(message = "osStoreId不可为空")
     private Long osStoreId;
 
-    @JSONField(name = "check_date")
-    @NotNull(message = "check_date不可为空")
+    @NotNull(message = "checkDate不可为空")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date checkDate;
 
