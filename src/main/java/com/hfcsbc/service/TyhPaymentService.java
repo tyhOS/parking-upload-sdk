@@ -21,7 +21,7 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String SIGN_TYPE = "RSA";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/buyerId/v1/open";
+    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/sign/buyerId/v1/open";
 
     /* -------------------------- 交易和关闭 -------------------------- */
     public static final String TRADE_PATH = "/trade/v1/open";

@@ -4,8 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.trade.TradeCmd;
 import com.hfcsbc.client.command.trade.TradeMergeCmd;
+import com.hfcsbc.client.command.trade.TradeQuery;
 import com.hfcsbc.client.dto.trade.TradeMergePayDto;
 import com.hfcsbc.client.dto.trade.TradePayDto;
+import com.hfcsbc.client.dto.trade.TradeQueryResultDto;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.constants.PayConstant;
 import com.hfcsbc.constants.TyhOptions;
@@ -32,7 +34,7 @@ public class PaymentTest {
     public void paymentTest() {
 
         TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
-                .restHost("http://192.168.1.42:9008")
+                .restHost("http://192.168.1.192:9008")
                 .accessId(ACCESS_ID)
                 .secretKey(SECRET_KEY)
                 .allowUpload(Boolean.TRUE)
@@ -94,5 +96,29 @@ public class PaymentTest {
 
     }
 
+    @Test
+    public void tradeQuery() {
+        // 创建上传数据client
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+//
+        TradeQuery query = TradeQuery.builder()
+                .ownerTradeNo("test_trade_2021125")
+                .build();
+
+        try {
+            Results<TradeQueryResultDto> results = client.tradeQuery(query);
+            System.out.printf("查询结果%s", JSON.toJSONString(results));
+            // 获取支付查询结果
+            TradeQueryResultDto dto = results != null && results.ifSuccess() ? results.getData() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
