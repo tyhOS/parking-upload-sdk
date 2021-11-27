@@ -16,22 +16,22 @@ public class TradeRefundCmd {
 
 
     /**
-     * 商户自传的交易号,和osTradeNo/tpTradeNo 不能同时为空
+     * 商户自传的交易号, ownerTradeNo/osTradeNo/tpTradeNo 不能同时为空
      */
     private String ownerTradeNo;
 
     /**
-     * 开放平台给支付平台的订单号 该参数与tpTradeNo二选一
+     * 开放平台给支付平台的订单号 ownerTradeNo/osTradeNo/tpTradeNo 不能同时为空
      */
     private String osTradeNo;
 
     /**
-     * 支付平台的订单号 该参数与osTradeNo二选一
+     * 支付平台的订单号 ownerTradeNo/osTradeNo/tpTradeNo 不能同时为空
      */
     private String tpTradeNo;
 
     /**
-     * 商户自传的退款交易号
+     * 商户自传的退款交易号,传此值时,会进行重复校验
      */
     private String ownerRefundNo;
 

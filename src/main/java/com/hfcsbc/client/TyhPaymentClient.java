@@ -56,7 +56,7 @@ public interface TyhPaymentClient {
     /**
      * 请求单笔退款
      */
-    Results<String> tradeRefund(TradeRefundCmd cmd) throws Exception;
+    Results<TradeRefundDto> tradeRefund(TradeRefundCmd cmd) throws Exception;
 
     /**
      * 查询交易退款结果

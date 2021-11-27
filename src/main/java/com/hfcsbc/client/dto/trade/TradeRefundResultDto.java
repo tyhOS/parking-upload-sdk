@@ -18,7 +18,7 @@ public class TradeRefundResultDto {
     private String refundStatus;
 
     /**
-     * 开放平台给支付平台的交易订单号
+     * 开放平台给商户的交易订单号
      */
     private String osTradeNo;
 
@@ -43,14 +43,29 @@ public class TradeRefundResultDto {
     private Integer refundFee;
 
     /**
+     * 退款申请时间，时间戳，标准北京时间
+     */
+    private Long createdTime;
+
+    /**
      * 支付平台返回的退款时间，时间戳 ，标准北京时间
      */
     private Long refundTime;
 
     /**
-     * 退款失败时用于显示支付平台的失败原因
+     * 交易的订单金额 单位为分
      */
-    private String msg;
+    private Integer orderFee;
+
+    /**
+     * 交易的实付金额 单位为分
+     */
+    private Integer paymentFee;
+
+    /**
+     * 退款原因
+     */
+    private String refundReason;
 
 
 }

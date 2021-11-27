@@ -2,12 +2,8 @@ package com.hfcsbc.example;
 
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
-import com.hfcsbc.client.command.trade.TradeCmd;
-import com.hfcsbc.client.command.trade.TradeMergeCmd;
-import com.hfcsbc.client.command.trade.TradeQuery;
-import com.hfcsbc.client.dto.trade.TradeMergePayDto;
-import com.hfcsbc.client.dto.trade.TradePayDto;
-import com.hfcsbc.client.dto.trade.TradeQueryResultDto;
+import com.hfcsbc.client.command.trade.*;
+import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.constants.PayConstant;
 import com.hfcsbc.constants.TyhOptions;
@@ -119,6 +115,97 @@ public class PaymentTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void refund() {
+        // 创建上传数据client
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+        //
+        TradeRefundCmd refundCmd = TradeRefundCmd.builder()
+                .ownerTradeNo("test_trade_2021125")
+                .osTradeNo("os_trade_20211126")
+                .ownerRefundNo("test_refund_20211126")
+                .refundFee(500)
+                .refundReason("退款原因")
+                .callbackUrl("以https开头的通知回调地址")
+                .build();
+
+        try {
+            Results<TradeRefundDto> results = client.tradeRefund(refundCmd);
+            System.out.printf("退款结果%s", JSON.toJSONString(results));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void closeMergeTrade() {
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+        TradeMergeCloseCmd closeCmd = TradeMergeCloseCmd.builder()
+                .ownerMergeNo("test_merge_20211126")
+                .osMergeNo("merge_20211126")
+                .build();
+
+        try {
+            Results<String> results = client.closeMergeTrade(closeCmd);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void tradeMergeQuery() {
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+        TradeMergeQuery query = TradeMergeQuery.builder()
+                .ownerMergeNo("owner_merge_20211126")
+                .osMergeNo("os_merge_20211126") //两个参数至少传一个即可，不可同时为空
+                .build();
+
+        try {
+            Results<TradeMergeQueryResultDto> results = client.tradeMergeQuery(query);
+            // 获取合并支付查询结果
+            TradeMergeQueryResultDto dto = results != null && results.ifSuccess() ? results.getData() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void refundQuery() {
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+        TradeRefundQuery query = TradeRefundQuery.builder()
+                .osRefundNo("os_refund_20211126")        // 必填
+                .ownerRefundNo("owner_refund_20211126")  //选填
+                .build();
+
+        try {
+            Results<TradeRefundResultDto> results = client.tradeRefundQuery(query);
+            // 获取合并支付查询结果
+            TradeRefundResultDto dto = results != null && results.ifSuccess() ? results.getData() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

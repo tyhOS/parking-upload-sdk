@@ -20,7 +20,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     public static final String SIGN_TYPE = "RSA";
 
-    /* -------------------------- 交易和关闭 -------------------------- */
+    /* -------------------------- 支付鉴权 -------------------------- */
     public static final String TRADE_BUYER_ID_PATH = "/trade/auth/sign/buyerId/v1/open";
 
     /* -------------------------- 交易和关闭 -------------------------- */
@@ -91,8 +91,8 @@ public class TyhPaymentService implements TyhPaymentClient {
     }
 
     @Override
-    public Results<String> tradeRefund(TradeRefundCmd cmd) throws Exception {
-        return generalPostRequest(cmd, TRADE_REFUND_PATH, String.class);
+    public Results<TradeRefundDto> tradeRefund(TradeRefundCmd cmd) throws Exception {
+        return generalPostRequest(cmd, TRADE_REFUND_PATH, TradeRefundDto.class);
     }
 
     @Override
