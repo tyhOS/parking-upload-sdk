@@ -31,6 +31,11 @@ public class TradeMergeCmd {
     private String payProduct;
 
     /**
+    * 商户支付终端
+    */
+    private String ownerPayTerminal;
+
+    /**
      * 绝对超时时间，超出该时间则支付失效，时间戳，标准北京时间 精确到毫秒
      */
     private Long timeExpire;
@@ -109,6 +114,11 @@ public class TradeMergeCmd {
          * 给支付平台的附加信息，支付平台会原封回调给对用方
          */
         private String remark;
+
+        /**
+        * 商户维护:商户创建的订单业务号
+        */
+        private String ownerBusinessNo;
 
     }
 

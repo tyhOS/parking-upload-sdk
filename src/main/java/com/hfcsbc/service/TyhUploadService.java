@@ -39,7 +39,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<String> uploadSurplus(OpenParkingSurplusCmd openParkingSurplusCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingSurplusCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+            .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_SURPLUS, tyhRequest, String.class);
   }
@@ -48,7 +48,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<String> uploadDriveIn(OpenParkingDriveInCmd openParkingDriveInCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingDriveInCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+            .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IN, tyhRequest, String.class);
   }
@@ -57,7 +57,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<String> uploadDriveOut(OpenParkingDriveOutCmd openParkingDriveOutCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingDriveOutCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+            .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_OUT, tyhRequest, String.class);
   }
@@ -66,7 +66,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<String> uploadImage(OpenParkingImageCmd openParkingImageCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingImageCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+            .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_DRIVE_IMAGE, tyhRequest, String.class);
   }
@@ -75,7 +75,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<OpenParkingHeartbeatDto> uploadHeartbeat(OpenParkingHeartbeatCmd openParkingHeartbeatCmd) throws Exception {
     byte[] data = JSON.toJSONString(openParkingHeartbeatCmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime()).signType(SIGN_TYPE)
+            .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
             .data(new String(Base64.encode(data))).build();
     return restConnection.executePostWithSignature(POST_UPLOAD_HEARTBEAT, tyhRequest, OpenParkingHeartbeatDto.class);
   }
@@ -84,7 +84,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<OpenParkingCheckRecordDto> uploadCheckRecord(OpenParkingCheckRecordCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime())
+            .timeStamp(System.currentTimeMillis())
             .signType(SIGN_TYPE)
             .data(new String(Base64.encode(data)))
             .build();
@@ -95,7 +95,7 @@ public class TyhUploadService implements TyhUploadClient {
   public Results<OpenParkingUIDDto> uploadUID(OpenParkingUIDCmd cmd) throws Exception {
     byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
     TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
-            .timeStamp(new Date().getTime())
+            .timeStamp(System.currentTimeMillis())
             .signType(SIGN_TYPE)
             .data(new String(Base64.encode(data)))
             .build();

@@ -107,4 +107,13 @@ public class TradeQueryResultDto {
      */
     private String payBusiness;
 
+    /**
+    * 商户维护:商户创建的订单业务号
+    */
+    private String ownerBusinessNo;
+
+    /**
+    * 商户支付终端
+    */
+    private String ownerPayTerminal;
 }
