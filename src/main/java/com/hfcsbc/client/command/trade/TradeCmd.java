@@ -99,4 +99,14 @@ public class TradeCmd {
     */
     private String ownerPayTerminal;
 
+    /**
+     * 商户独立应用的appId
+     */
+    private String osMerchantAppId;
+
+    /**
+     * 商户独立应用的用户id
+     */
+    private String osMerchantAppBuyerId;
+
 }
