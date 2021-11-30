@@ -102,11 +102,11 @@ public class TradeCmd {
     /**
      * 商户独立应用的appId
      */
-    private String osMerchantAppId;
+    private String ownerMerchantAppId;
 
     /**
      * 商户独立应用的用户id
      */
-    private String osMerchantAppBuyerId;
+    private String ownerMerchantAppBuyerId;
 
 }
