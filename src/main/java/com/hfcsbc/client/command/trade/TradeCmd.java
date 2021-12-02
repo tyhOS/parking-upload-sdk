@@ -80,11 +80,6 @@ public class TradeCmd {
     private Long timeExpire;
 
     /**
-     * 支付宝或微信的买家id，小程序必传
-     */
-    private String buyerId;
-
-    /**
      * 支付宝手机网页支付必传，用户付款中途退出返回商户网站的地址
      */
     private String quitUrl;
@@ -100,13 +95,14 @@ public class TradeCmd {
     private String ownerPayTerminal;
 
     /**
-     * 商户独立应用的appId
+     * 商户独立应用的appId，没有可不传
      */
     private String ownerAppId;
 
     /**
-     * 商户独立应用的用户id
+     * 支付宝或微信应用的买家id，小程序必传 （若商户有独立的小程序应用，则传商户小程序的用户id）
      */
     private String ownerAppBuyerId;
+
 
 }

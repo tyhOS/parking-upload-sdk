@@ -116,4 +116,14 @@ public class TradeQueryResultDto {
     * 商户支付终端
     */
     private String ownerPayTerminal;
+
+    /**
+     * 子商户应用对应用户ID,openId
+     */
+    private String ownerAppBuyerId;
+
+    /**
+     * 买家在支付机构的登录账号
+     */
+    private String buyerLoginId;
 }

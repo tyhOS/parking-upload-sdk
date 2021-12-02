@@ -51,9 +51,14 @@ public class TradeMergeCmd {
     private String ownerMergeNo;
 
     /**
-     * 支付宝或微信的买家id，小程序必传
+     * 商户独立应用的appId
      */
-    private String buyerId;
+    private String ownerAppId;
+
+    /**
+     * 支付宝或微信应用的买家id，小程序必传 （若商户有独立的小程序应用，则传商户小程序的用户id）
+     */
+    private String ownerAppBuyerId;
 
     /**
      * 通知地址 通知URL必须为直接可访问的URL，不允许携带查询串，要求必须为https地址。如果此属性有值,则只通知一次
