@@ -69,5 +69,10 @@ public interface TyhPaymentClient {
      */
     TyhRequest obtainSignRequestParam(Object param)  throws Exception;
 
+    /**
+     * 多码合一交易请求
+     */
+    Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception;
+
 
 }

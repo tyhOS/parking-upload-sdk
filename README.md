@@ -9,7 +9,7 @@
 <dependency>
   <groupId>com.hfcsbc.sdk</groupId>
   <artifactId>upload-client</artifactId>
-  <version>0.0.10</version>
+  <version>2.0.14</version>
 </dependency>
 ```
 
@@ -77,34 +77,4 @@ try {
 ```
 
 
-
-### Question
-
-maven引入失败？
-
-解决方案：
-
-```
-1.找到maven的settings.xml文件；
-
-2.找到<servers>标签，在标签内添加如下内容：
-  <server>
-      <id>github</id>
-      <username>USERNAME</username>
-      <password>TOKEN</password>
-  </server>
-    
-（注：USERNAME代表自己的git用户名，TOKEN为git账号的TOKEN信息）
- 
-3.找到<repositories>标签,在标签内添加如下内容：
-  <repository>
-      <id>github</id>
-      <url>https://maven.pkg.github.com/tyhOS/*</url>
-      <snapshots>
-      <enabled>true</enabled>
-      </snapshots>
-  </repository>
-
-4.回到项目，mvn install
-```
 

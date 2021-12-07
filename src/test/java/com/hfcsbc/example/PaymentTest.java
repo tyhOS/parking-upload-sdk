@@ -208,4 +208,32 @@ public class PaymentTest {
         }
     }
 
+    @Test
+    public void multiQRTrade() {
+        TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
+                .restHost("http://192.168.1.192:9008")
+                .accessId(ACCESS_ID)
+                .secretKey(SECRET_KEY)
+                .allowUpload(Boolean.TRUE)
+                .build());
+
+        TradeCmd tradeCmd = TradeCmd.builder()
+                .osMerchantId(2163737276721967L)
+                .osStoreId(3163757684139653L)
+                .ownerTradeNo("owner_trade_118888806")
+                .title("支付标题")
+                .remark("给支付平台的附加信息，支付平台会原封回调给对用方")
+                .orderFee(1) //订单金额，最小单位分
+                .timeExpire(System.currentTimeMillis() + 1000 * 60 * 10)
+                .notifyUrl("https开头的回调地址")
+                .build();
+
+        try {
+            Results<TradePayDto> results = client.multiQRTrade(tradeCmd);
+            TradePayDto dto = results != null && results.ifSuccess() ? results.getData() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

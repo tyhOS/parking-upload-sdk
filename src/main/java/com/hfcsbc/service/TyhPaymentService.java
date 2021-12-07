@@ -37,6 +37,9 @@ public class TyhPaymentService implements TyhPaymentClient {
     /* -------------------------- 退款相关 --------------------------- */
     public static final String TRADE_REFUND_PATH = "/refund/v1/open";
 
+    /* -------------------------- 多码合一 --------------------------- */
+    public static final String MULTI_QR_TRADE = "/trade/multiQR/v1/open";
+
 
     private final Options options;
 
@@ -107,5 +110,10 @@ public class TyhPaymentService implements TyhPaymentClient {
                 .timeStamp(System.currentTimeMillis()).signType(SIGN_TYPE)
                 .data(new String(Base64.encode(data))).build();
         return restConnection.obtainSignRequestParam(tyhRequest);
+    }
+
+    @Override
+    public Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MULTI_QR_TRADE, TradePayDto.class);
     }
 }
