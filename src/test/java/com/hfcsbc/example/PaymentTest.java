@@ -211,10 +211,10 @@ public class PaymentTest {
     @Test
     public void multiQRTrade() {
         TyhPaymentClient client = TyhPaymentClient.create(TyhOptions.builder()
-                .restHost("http://192.168.1.192:9008")
+                .restHost("https://devjiguang.hfcsbc.com")  // 请求正式服时可不传该字段
                 .accessId(ACCESS_ID)
                 .secretKey(SECRET_KEY)
-                .allowUpload(Boolean.TRUE)
+                .allowUpload(Boolean.TRUE) // 可不传，默认开启上传数据
                 .build());
 
         TradeCmd tradeCmd = TradeCmd.builder()
