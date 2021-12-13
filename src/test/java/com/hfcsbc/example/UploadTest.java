@@ -10,6 +10,8 @@ import com.hfcsbc.constants.TyhConstants;
 import com.hfcsbc.constants.TyhOptions;
 import org.junit.Test;
 
+import java.util.Date;
+
 public class UploadTest {
 
 
@@ -21,10 +23,11 @@ public class UploadTest {
     @Test
     public void UploadTest1(){
         // 创建上传数据client
-        TyhUploadClient client = TyhUploadClient.create(TyhOptions.builder()
-                .accessId(ACCESS_ID)
-                .secretKey(SECRET_KEY)
-                .build());
+//        TyhUploadClient client = TyhUploadClient.create(TyhOptions.builder()
+//                .restHost("https://devjiguang.hfcsbc.com")
+//                .accessId(ACCESS_ID)
+//                .secretKey(SECRET_KEY)
+//                .build());
 
         // 上传余位数据
 //        OpenParkingSurplusCmd cmd = OpenParkingSurplusCmd.builder()
@@ -65,14 +68,15 @@ public class UploadTest {
 //                .carPlate("皖Axxxxx")
 //                .carPlateColor(TyhConstants.CarPlateColor.BLUE)
 //                .orderId("order123456662")
-//                .content("TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4")
+//                .content("https://ossweb.hfcsbc.com/tyh/asset/app-icon.png")
 //                .source(TyhConstants.ImageSource.DRIVE_IN)
+//                .imageType(TyhConstants.ImageType.URL)
 //                .build();
 
 //        // 心跳数据
 //        OpenParkingHeartbeatCmd cmd = OpenParkingHeartbeatCmd.builder()
 //                .osStoreId(OS_STORE_ID)
-//                .uploadTime(uploadTime)
+//                .uploadTime(System.currentTimeMillis())
 //                .build();
 
         // 停车场日对账
@@ -98,7 +102,7 @@ public class UploadTest {
 //                .surplus(10).build();
 
 //        try {
-//            TyhResponse reponse = uploadClient.uploadSurplus(openParkingSurplusCmd);
+//            Results reponse = client.uploadImage(cmd);
 //            if (!reponse.ifSuccess()) {
 //                System.out.println("调用失败，错误码="+ reponse.getCode() + "，失败原因="+reponse.getMsg());
 //            }

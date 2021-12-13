@@ -41,4 +41,8 @@ public class OpenParkingImageCmd {
     @TyhConstants.ImageSource
     private Integer source;
 
+    @NotNull(message = "图片类型不能为空（1：URL， 2：Base64）")
+    @TyhConstants.ImageType
+    private Integer imageType = TyhConstants.ImageType.URL;
+
 }

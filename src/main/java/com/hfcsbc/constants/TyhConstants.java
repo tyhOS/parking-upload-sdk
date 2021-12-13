@@ -88,6 +88,16 @@ public class TyhConstants {
         Integer PASSAGE = 4;                //车道监控抓拍
     }
 
+    /**
+     * 图片上传类型
+     */
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface ImageType {
+        Integer URL = 1;            //URL链接
+        Integer BASE64 = 2;         //Base64文件
+    }
+
     public static String getCarPlateColorDesc(@TyhConstants.CarPlateColor Integer carPlateColor) {
         if (CarPlateColor.BLUE.equals(carPlateColor)) return CarPlateColorDesc.BLUE;
         else if (CarPlateColor.YELLOW.equals(carPlateColor)) return CarPlateColorDesc.YELLOW;
