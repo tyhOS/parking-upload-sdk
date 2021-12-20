@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class TyhPaymentService implements TyhPaymentClient {
 
-    public static final String SIGN_TYPE = "RSA";
+    public static final String SIGN_TYPE = "RSA2";
 
     /* -------------------------- 支付鉴权 -------------------------- */
     public static final String TRADE_BUYER_ID_PATH = "/trade/auth/sign/buyerId/v1/open";

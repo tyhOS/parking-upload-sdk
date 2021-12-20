@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class TyhUploadService implements TyhUploadClient {
 
-  public static final String SIGN_TYPE = "RSA";
+  public static final String SIGN_TYPE = "RSA2";
   public static final String POST_UPLOAD_SURPLUS = "/ospark/open/api/v1/uploadSurplus";
   public static final String POST_UPLOAD_DRIVE_IN = "/ospark/open/api/v1/uploadDriveIn";
   public static final String POST_UPLOAD_DRIVE_OUT = "/ospark/open/api/v1/uploadDriveOut";

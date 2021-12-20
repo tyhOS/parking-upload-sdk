@@ -16,8 +16,8 @@ import java.security.spec.X509EncodedKeySpec;
  * @create: 2021-09-23 18:04
  **/
 public class RSA2Utils {
-    private static final String KEY_ALGORITHM = "RSA";
-    private static final String SIGN_ALGORITHM = "SHA1WithRSA";
+    private static final String SIGN_TYPE_RSA = "RSA";
+    private static final String SIGN_SHA256RSA_ALGORITHMS = "SHA256WithRSA";
 
     /**
      * 私钥签名
@@ -28,7 +28,7 @@ public class RSA2Utils {
      * @throws Exception
      */
     public static String doSign(String content, String charset, PrivateKey priKey) throws Exception {
-        Signature signature = Signature.getInstance(SIGN_ALGORITHM);
+        Signature signature = Signature.getInstance(SIGN_SHA256RSA_ALGORITHMS);
         signature.initSign(priKey);
         if (StringUtil.isEmpty(charset)) {
             signature.update(content.getBytes());
@@ -50,7 +50,7 @@ public class RSA2Utils {
      * @throws Exception
      */
     public static boolean doVerify(String content, String charset, PublicKey pubKey, String sign) throws Exception {
-        Signature signature = Signature.getInstance(SIGN_ALGORITHM);
+        Signature signature = Signature.getInstance(SIGN_SHA256RSA_ALGORITHMS);
         signature.initVerify(pubKey);
         if (StringUtil.isEmpty(charset)) {
             signature.update(content.getBytes());
@@ -69,7 +69,7 @@ public class RSA2Utils {
      * @throws Exception
      */
     public static PrivateKey getPrivateKeyFromPKCS8(String privateKey) throws Exception {
-        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        KeyFactory keyFactory = KeyFactory.getInstance(SIGN_TYPE_RSA);
         byte[] encodedKey = Base64.decode(privateKey);
         return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(encodedKey));
     }
@@ -82,7 +82,7 @@ public class RSA2Utils {
      * @throws Exception
      */
     public static PublicKey getPublicKeyFromX509(String publicKey) throws Exception {
-        KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
+        KeyFactory keyFactory = KeyFactory.getInstance(SIGN_TYPE_RSA);
         byte[] encodedKey = Base64.decode(publicKey);
         return keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
     }
