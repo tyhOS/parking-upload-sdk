@@ -34,11 +34,11 @@ public class CreditPaymentTest {
     public void creditTradeTest() {
         TyhPaymentClient client = TyhPaymentClient.create(options);
         CreditPayTradeCmd cmd = CreditPayTradeCmd.builder()
-                .carPlate("皖AM771D")
+                .carPlate("xxx")
                 .carPlateColor(TyhConstants.CarPlateColor.BLUE)
                 .orderFee(80)
-                .osOrderId("tyh0000001")
-                .title("皖AM771D停车费")
+                .osOrderId("xxx")
+                .title("xxx")
                 .osMerchantId(OS_MERCHANT_ID)
                 .osStoreId(OS_STORE_ID)
                 .build();
