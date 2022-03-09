@@ -1,6 +1,8 @@
 package com.hfcsbc.client;
 
+import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
 import com.hfcsbc.client.command.trade.*;
+import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
@@ -74,5 +76,14 @@ public interface TyhPaymentClient {
      */
     Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception;
 
+    /**
+     * 无感支付
+     */
+    Results<CreditPayTradeDto> creditTrade(CreditPayTradeCmd cmd) throws Exception;
+
+    /**
+     * 无感支付退款
+     */
+    Results<TradeRefundResultDto> creditRefund(TradeRefundCmd cmd) throws Exception;
 
 }

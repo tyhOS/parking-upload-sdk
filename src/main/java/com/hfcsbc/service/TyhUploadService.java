@@ -25,6 +25,7 @@ public class TyhUploadService implements TyhUploadClient {
   public static final String POST_UPLOAD_HEARTBEAT = "/ospark/open/api/v1/uploadHeartbeat";
   public static final String POST_UPLOAD_CHECK_RECORD = "/ospark/open/api/v1/uploadCheckRecord";
   public static final String POST_UPLOAD_UID = "/ospark/open/api/v1/uploadUID";
+  public static final String POST_CREDIT_PAY_SET = "/ospark/open/api/v1/creditPaySet";
 
   private Options options;
 
@@ -100,6 +101,17 @@ public class TyhUploadService implements TyhUploadClient {
             .data(new String(Base64.encode(data)))
             .build();
     return restConnection.executePostWithSignature(POST_UPLOAD_UID, tyhRequest, OpenParkingUIDDto.class);
+  }
+
+  @Override
+  public Results<String> creditPaySet(OpenParkingCreditPayCmd cmd) throws Exception {
+    byte[] data = JSON.toJSONString(cmd).getBytes(StandardCharsets.UTF_8);
+    TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
+            .timeStamp(System.currentTimeMillis())
+            .signType(SIGN_TYPE)
+            .data(new String(Base64.encode(data)))
+            .build();
+    return restConnection.executePostWithSignature(POST_CREDIT_PAY_SET, tyhRequest, String.class);
   }
 
 

@@ -28,4 +28,6 @@ public interface TyhUploadClient {
 
     Results<OpenParkingUIDDto> uploadUID(OpenParkingUIDCmd cmd) throws Exception;
 
+    Results<String> creditPaySet(OpenParkingCreditPayCmd cmd) throws Exception;
+
 }

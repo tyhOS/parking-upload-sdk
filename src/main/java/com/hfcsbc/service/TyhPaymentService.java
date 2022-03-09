@@ -2,7 +2,9 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
+import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
 import com.hfcsbc.client.command.trade.*;
+import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
@@ -25,6 +27,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 交易和关闭 -------------------------- */
     public static final String TRADE_PATH = "/trade/v1/open";
+    public static final String CREDIT_TRADE_PATH = "/trade/credit/v1/open";
     public static final String TRADE_CLOSE_PATH = "/trade/close/v1/open";
     public static final String MERGE_TRADE_PATH = "/trade/merge/v1/open";
     public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/v1/open";
@@ -36,6 +39,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 退款相关 --------------------------- */
     public static final String TRADE_REFUND_PATH = "/refund/v1/open";
+    public static final String CREDIT_REFUND_PATH = "/refund/credit/v1/open";
 
     /* -------------------------- 多码合一 --------------------------- */
     public static final String MULTI_QR_TRADE = "/trade/multiQR/v1/open";
@@ -116,4 +120,15 @@ public class TyhPaymentService implements TyhPaymentClient {
     public Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception {
         return generalPostRequest(cmd, MULTI_QR_TRADE, TradePayDto.class);
     }
+
+    @Override
+    public Results<CreditPayTradeDto> creditTrade(CreditPayTradeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_TRADE_PATH, CreditPayTradeDto.class);
+    }
+
+    @Override
+    public Results<TradeRefundResultDto> creditRefund(TradeRefundCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_REFUND_PATH, TradeRefundResultDto.class);
+    }
+
 }
