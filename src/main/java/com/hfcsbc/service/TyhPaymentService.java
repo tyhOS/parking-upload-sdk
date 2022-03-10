@@ -2,8 +2,10 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.hfcsbc.client.TyhPaymentClient;
+import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
 import com.hfcsbc.client.command.trade.*;
+import com.hfcsbc.client.dto.credit.CreditPayCarStatusDto;
 import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
@@ -27,7 +29,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 交易和关闭 -------------------------- */
     public static final String TRADE_PATH = "/trade/v1/open";
-    public static final String CREDIT_TRADE_PATH = "/trade/credit/v1/open";
+
     public static final String TRADE_CLOSE_PATH = "/trade/close/v1/open";
     public static final String MERGE_TRADE_PATH = "/trade/merge/v1/open";
     public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/v1/open";
@@ -43,6 +45,14 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 多码合一 --------------------------- */
     public static final String MULTI_QR_TRADE = "/trade/multiQR/v1/open";
+
+
+    /**
+     * 无感支付
+     */
+    public static final String CREDIT_TRADE_PATH = "/trade/credit/v1/open";             // 无感支付申请扣款
+    public static final String CREDIT_CAR_STATUS = "/trade/credit/carStatus/v1/open";   // 查询车牌是否可用无感支付
+
 
 
     private final Options options;
@@ -119,6 +129,11 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception {
         return generalPostRequest(cmd, MULTI_QR_TRADE, TradePayDto.class);
+    }
+
+    @Override
+    public Results<CreditPayCarStatusDto> creditCarStatus(CreditPayCarStatusCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_CAR_STATUS, CreditPayCarStatusDto.class);
     }
 
     @Override

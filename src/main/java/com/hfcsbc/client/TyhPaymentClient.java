@@ -1,7 +1,9 @@
 package com.hfcsbc.client;
 
+import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
 import com.hfcsbc.client.command.trade.*;
+import com.hfcsbc.client.dto.credit.CreditPayCarStatusDto;
 import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
@@ -75,6 +77,11 @@ public interface TyhPaymentClient {
      * 多码合一交易请求
      */
     Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception;
+
+    /**
+     * 查询车牌是否可用无感支付
+     */
+    Results<CreditPayCarStatusDto> creditCarStatus(CreditPayCarStatusCmd cmd) throws Exception;
 
     /**
      * 无感支付
