@@ -2,8 +2,10 @@ package com.hfcsbc.client.command.credit;
 
 import com.hfcsbc.constants.PayConstant;
 import com.hfcsbc.constants.TyhConstants;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -14,8 +16,10 @@ import javax.validation.constraints.NotNull;
  * Date: 2022/3/7
  * Description: 无感支付交易Cmd
  */
-@Data
 @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreditPayTradeCmd {
 
     /* *****************************************************************************************************************

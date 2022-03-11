@@ -4,6 +4,7 @@ import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
 import com.hfcsbc.client.command.trade.TradeRefundCmd;
+import com.hfcsbc.client.dto.credit.CreditPayCarStatusDto;
 import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
 import com.hfcsbc.client.dto.trade.TradeRefundResultDto;
 import com.hfcsbc.client.model.Results;
@@ -32,52 +33,44 @@ public class CreditPaymentTest {
             .build();
 
     @Test
-    public void creditCarStatus() throws Exception {
+    public void carStatus() throws Exception {
+        long startTime = System.currentTimeMillis();
         TyhPaymentClient client = TyhPaymentClient.create(options);
         CreditPayCarStatusCmd cmd = CreditPayCarStatusCmd.builder()
                 .carPlate("xx")
-                .carPlateColor(TyhConstants.CarPlateColor.GREEN)
+                .carPlateColor(TyhConstants.CarPlateColor.BLUE)
                 .build();
-        client.creditCarStatus(cmd);
-        int i = 0;
+        Results<CreditPayCarStatusDto> dto = client.creditCarStatus(cmd);
+        System.out.printf("carStatus用时:%sms%n", (System.currentTimeMillis() - startTime));
     }
 
     @Test
-    public void creditTradeTest() {
+    public void trade() throws Exception{
+        long startTime = System.currentTimeMillis();
         TyhPaymentClient client = TyhPaymentClient.create(options);
         CreditPayTradeCmd cmd = CreditPayTradeCmd.builder()
-                .carPlate("xxx")
+                .carPlate("xx")
                 .carPlateColor(TyhConstants.CarPlateColor.BLUE)
-                .orderFee(5)
+                .orderFee(100000)
                 .osOrderId("xx")
-                .title("xx")
+                .title("停车缴费")
                 .osMerchantId(OS_MERCHANT_ID)
                 .osStoreId(OS_STORE_ID)
                 .build();
-        Results<CreditPayTradeDto> results;
-        try {
-            results = client.creditTrade(cmd);
-            int i = 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Results<CreditPayTradeDto> results = client.creditTrade(cmd);
+        System.out.printf("trade用时:%sms%n", (System.currentTimeMillis() - startTime));
     }
 
-
     @Test
-    public void creditRefundTest() {
+    public void refund() throws Exception{
+        long startTime = System.currentTimeMillis();
         TyhPaymentClient client = TyhPaymentClient.create(options);
         TradeRefundCmd cmd = TradeRefundCmd.builder()
-                .osTradeNo("2022030911004089347429145256")
-                .refundFee(4)
+                .osTradeNo("xx")
+                .refundFee(100)
                 .build();
-        Results<TradeRefundResultDto> results;
-        try {
-            results = client.creditRefund(cmd);
-            int i = 0;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Results<TradeRefundResultDto> results = client.creditRefund(cmd);
+        System.out.printf("refund用时:%sms%n", (System.currentTimeMillis() - startTime));
     }
 
 
