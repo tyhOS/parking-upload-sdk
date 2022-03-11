@@ -68,12 +68,6 @@ public class CreditPayTradeCmd {
     private String ownerTradeNo;
 
     /**
-     * 支付渠道, 无感支付，可为空,无感支付下可为空
-     */
-    @PayConstant.PayChannel
-    private String payChannel;
-
-    /**
      * 订单标题不能为空
      */
     @NotEmpty(message = "订单标题不能为空")
@@ -100,9 +94,5 @@ public class CreditPayTradeCmd {
      */
     private String ownerPayTerminal;
 
-    /**
-     * 商户独立应用的appId, 若没有可不传
-     */
-    private String ownerAppId;
 
 }
