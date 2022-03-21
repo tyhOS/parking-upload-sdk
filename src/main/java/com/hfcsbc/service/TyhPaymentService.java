@@ -23,35 +23,36 @@ import java.nio.charset.StandardCharsets;
 public class TyhPaymentService implements TyhPaymentClient {
 
     public static final String SIGN_TYPE = "RSA2";
+    public static final String APPLICATION_NAME = "/os-base";
 
     /* -------------------------- 支付鉴权 -------------------------- */
-    public static final String TRADE_BUYER_ID_PATH = "/trade/auth/sign/buyerId/v1/open";
+    public static final String TRADE_BUYER_ID_PATH = APPLICATION_NAME + "/trade/auth/sign/buyerId/v1/open";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_PATH = "/trade/v1/open";
+    public static final String TRADE_PATH = APPLICATION_NAME + "/trade/v1/open";
 
-    public static final String TRADE_CLOSE_PATH = "/trade/close/v1/open";
-    public static final String MERGE_TRADE_PATH = "/trade/merge/v1/open";
-    public static final String MERGE_TRADE_CLOSE_PATH = "/trade/close/merge/v1/open";
+    public static final String TRADE_CLOSE_PATH = APPLICATION_NAME + "/trade/close/v1/open";
+    public static final String MERGE_TRADE_PATH = APPLICATION_NAME + "/trade/merge/v1/open";
+    public static final String MERGE_TRADE_CLOSE_PATH = APPLICATION_NAME + "/trade/close/merge/v1/open";
 
     /* -------------------------- 交易查询 -------------------------- */
-    public static final String TRADE_QUERY_PATH = "/query/trade/v1/open";
-    public static final String TRADE_MERGE_QUERY_PATH = "/query/merge/trade/v1/open";
-    public static final String TRADE_REFUND_QUERY_PATH = "/query/refund/v1/open";
+    public static final String TRADE_QUERY_PATH = APPLICATION_NAME + "/query/trade/v1/open";
+    public static final String TRADE_MERGE_QUERY_PATH = APPLICATION_NAME + "/query/merge/trade/v1/open";
+    public static final String TRADE_REFUND_QUERY_PATH = APPLICATION_NAME + "/query/refund/v1/open";
 
     /* -------------------------- 退款相关 --------------------------- */
-    public static final String TRADE_REFUND_PATH = "/refund/v1/open";
-    public static final String CREDIT_REFUND_PATH = "/refund/credit/v1/open";
+    public static final String TRADE_REFUND_PATH = APPLICATION_NAME + "/refund/v1/open";
+    public static final String CREDIT_REFUND_PATH = APPLICATION_NAME + "/refund/credit/v1/open";
 
     /* -------------------------- 多码合一 --------------------------- */
-    public static final String MULTI_QR_TRADE = "/trade/multiQR/v1/open";
+    public static final String MULTI_QR_TRADE = APPLICATION_NAME + "/trade/multiQR/v1/open";
 
 
     /**
      * 无感支付
      */
-    public static final String CREDIT_TRADE_PATH = "/trade/credit/v1/open";             // 无感支付申请扣款
-    public static final String CREDIT_CAR_STATUS = "/trade/credit/carStatus/v1/open";   // 查询车牌是否可用无感支付
+    public static final String CREDIT_TRADE_PATH = APPLICATION_NAME + "/trade/credit/v1/open";             // 无感支付申请扣款
+    public static final String CREDIT_CAR_STATUS = APPLICATION_NAME + "/trade/credit/carStatus/v1/open";   // 查询车牌是否可用无感支付
 
 
 

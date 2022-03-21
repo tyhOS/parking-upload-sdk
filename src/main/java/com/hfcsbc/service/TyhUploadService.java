@@ -18,14 +18,15 @@ import java.util.Date;
 public class TyhUploadService implements TyhUploadClient {
 
   public static final String SIGN_TYPE = "RSA2";
-  public static final String POST_UPLOAD_SURPLUS = "/ospark/open/api/v1/uploadSurplus";
-  public static final String POST_UPLOAD_DRIVE_IN = "/ospark/open/api/v1/uploadDriveIn";
-  public static final String POST_UPLOAD_DRIVE_OUT = "/ospark/open/api/v1/uploadDriveOut";
-  public static final String POST_UPLOAD_DRIVE_IMAGE = "/ospark/open/api/v1/uploadImage";
-  public static final String POST_UPLOAD_HEARTBEAT = "/ospark/open/api/v1/uploadHeartbeat";
-  public static final String POST_UPLOAD_CHECK_RECORD = "/ospark/open/api/v1/uploadCheckRecord";
-  public static final String POST_UPLOAD_UID = "/ospark/open/api/v1/uploadUID";
-  public static final String POST_CREDIT_PAY_SET = "/ospark/open/api/v1/creditPaySet";
+  public static final String APPLICATION_NAME = "/os-park";
+  public static final String POST_UPLOAD_SURPLUS = APPLICATION_NAME + "/ospark/open/api/v1/uploadSurplus";
+  public static final String POST_UPLOAD_DRIVE_IN = APPLICATION_NAME + "/ospark/open/api/v1/uploadDriveIn";
+  public static final String POST_UPLOAD_DRIVE_OUT = APPLICATION_NAME + "/ospark/open/api/v1/uploadDriveOut";
+  public static final String POST_UPLOAD_DRIVE_IMAGE = APPLICATION_NAME + "/ospark/open/api/v1/uploadImage";
+  public static final String POST_UPLOAD_HEARTBEAT = APPLICATION_NAME + "/ospark/open/api/v1/uploadHeartbeat";
+  public static final String POST_UPLOAD_CHECK_RECORD = APPLICATION_NAME + "/ospark/open/api/v1/uploadCheckRecord";
+  public static final String POST_UPLOAD_UID = APPLICATION_NAME + "/ospark/open/api/v1/uploadUID";
+  public static final String POST_CREDIT_PAY_SET = APPLICATION_NAME + "/ospark/open/api/v1/creditPaySet";
 
   private Options options;
 
