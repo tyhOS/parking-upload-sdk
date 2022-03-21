@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 public class TyhOptions implements Options {
 
-  public static final String DEFAULT_REST_HOST = "https://jiguang.hfcsbc.com";
+  public static final String DEFAULT_REST_HOST = "https://os.hfcsbc.com";
 
   private String restHost;
 
