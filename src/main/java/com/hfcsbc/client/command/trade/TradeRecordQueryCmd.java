@@ -82,6 +82,11 @@ public class TradeRecordQueryCmd {
     private String ownerTradeNo;
 
     /**
+     * 商户创建的订单业务号
+     */
+    private String ownerBusinessNo;
+
+    /**
      * 当前页
      */
     private Integer page = 0;
