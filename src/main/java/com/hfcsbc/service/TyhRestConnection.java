@@ -2,13 +2,9 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
-import com.hfcsbc.client.dto.trade.TradePayDto;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
-import com.hfcsbc.constants.TyhErrorCode;
-import com.hfcsbc.constants.TyhException;
 import com.hfcsbc.utils.ConnectionFactory;
 import com.hfcsbc.utils.RSA2Utils;
 import lombok.extern.slf4j.Slf4j;

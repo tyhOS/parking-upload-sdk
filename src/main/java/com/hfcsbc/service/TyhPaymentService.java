@@ -11,6 +11,7 @@ import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
+import com.hfcsbc.utils.Page;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.nio.charset.StandardCharsets;
@@ -39,6 +40,7 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String TRADE_QUERY_PATH = APPLICATION_NAME + "/query/trade/v1/open";
     public static final String TRADE_MERGE_QUERY_PATH = APPLICATION_NAME + "/query/merge/trade/v1/open";
     public static final String TRADE_REFUND_QUERY_PATH = APPLICATION_NAME + "/query/refund/v1/open";
+    public static final String TRADE_RECORD_QUERY_PATH = APPLICATION_NAME + "/tradeRecord/queryPage/v1/open";
 
     /* -------------------------- 退款相关 --------------------------- */
     public static final String TRADE_REFUND_PATH = APPLICATION_NAME + "/refund/v1/open";
@@ -116,6 +118,12 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public Results<TradeRefundResultDto> tradeRefundQuery(TradeRefundQuery query) throws Exception {
         return generalPostRequest(query, TRADE_REFUND_QUERY_PATH, TradeRefundResultDto.class);
+    }
+
+    @Override
+    public Results<Page<TradeRecordNormalDto>> tradeRecordQuery(TradeRecordQueryCmd query) throws Exception {
+        Page<TradeRecordNormalDto> page = new Page<>();
+        return generalPostRequest(query, TRADE_RECORD_QUERY_PATH, (Class<Page<TradeRecordNormalDto>>) page.getClass());
     }
 
     @Override

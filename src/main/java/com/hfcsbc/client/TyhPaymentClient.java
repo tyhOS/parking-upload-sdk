@@ -10,6 +10,7 @@ import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhPaymentService;
+import com.hfcsbc.utils.Page;
 
 /**
  * @Author Liu Chong
@@ -66,6 +67,11 @@ public interface TyhPaymentClient {
      * 查询交易退款结果
      */
     Results<TradeRefundResultDto> tradeRefundQuery(TradeRefundQuery query) throws Exception;
+
+    /**
+     * 查询交易记录
+     */
+    Results<Page<TradeRecordNormalDto>> tradeRecordQuery(TradeRecordQueryCmd query) throws Exception;
 
 
     /**
