@@ -126,4 +126,9 @@ public class TradeQueryResultDto {
      * 买家在支付机构的登录账号
      */
     private String buyerLoginId;
+
+    /**
+     * 第三方商户账号
+     */
+    private String tpMerchantId;
 }
