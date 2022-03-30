@@ -1,6 +1,7 @@
 package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
@@ -15,6 +16,7 @@ import com.hfcsbc.utils.Page;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 /**
  * @Author Liu Chong
@@ -123,7 +125,10 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public Results<Page<TradeRecordNormalDto>> tradeRecordQuery(TradeRecordQueryCmd query) throws Exception {
         Page<TradeRecordNormalDto> page = new Page<>();
-        return generalPostRequest(query, TRADE_RECORD_QUERY_PATH, (Class<Page<TradeRecordNormalDto>>) page.getClass());
+        Results<Page<TradeRecordNormalDto>> pageResults = generalPostRequest(query, TRADE_RECORD_QUERY_PATH, (Class<Page<TradeRecordNormalDto>>) page.getClass());
+        List<TradeRecordNormalDto> tradeRecordNormalDto = JSONObject.parseArray(JSONObject.toJSONString(pageResults.getData().getContent()), TradeRecordNormalDto.class);
+        pageResults.getData().setContent(tradeRecordNormalDto);
+        return pageResults;
     }
 
     @Override
