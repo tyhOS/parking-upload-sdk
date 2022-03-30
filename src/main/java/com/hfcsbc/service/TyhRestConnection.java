@@ -54,7 +54,7 @@ public class TyhRestConnection {
         tyhRequest.setSign(RSA2Utils.doSign(content, "utf-8", privateKey));
 
         String requestUrl = options.getRestHost() + path;
-        Request executeRequest = new Request.Builder().url(requestUrl).post(RequestBody.create(JSON_TYPE, JSON.toJSONString(tyhRequest)))
+        Request executeRequest = new Request.Builder().url(requestUrl).post(RequestBody.create(JSON.toJSONString(tyhRequest), JSON_TYPE))
                 .addHeader("Content-Type", "application/json").build();
 
         String resp = ConnectionFactory.execute(executeRequest);
