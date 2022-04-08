@@ -35,4 +35,7 @@ public class TradePayDto {
      */
     private String sign;
 
+    // 支付记录id，兼容tyh-base的payRecordId
+    private Long tempId;
+
 }
