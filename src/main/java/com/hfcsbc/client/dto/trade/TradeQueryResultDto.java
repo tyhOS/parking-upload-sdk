@@ -131,4 +131,7 @@ public class TradeQueryResultDto {
      * 第三方商户账号
      */
     private String tpMerchantId;
+
+    // 支付记录id，兼容tyh-base的payRecordId
+    private Long tempId;
 }
