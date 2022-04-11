@@ -1,12 +1,12 @@
 package com.hfcsbc.client;
 
 import com.hfcsbc.client.command.upload.*;
-import com.hfcsbc.client.dto.OpenParkingCheckRecordDto;
-import com.hfcsbc.client.dto.OpenParkingHeartbeatDto;
-import com.hfcsbc.client.dto.OpenParkingUIDDto;
+import com.hfcsbc.client.dto.*;
+import com.hfcsbc.client.dto.trade.TradeRecordNormalDto;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhUploadService;
+import com.hfcsbc.utils.Page;
 
 public interface TyhUploadClient {
 
@@ -30,4 +30,12 @@ public interface TyhUploadClient {
 
     Results<String> creditPaySet(OpenParkingCreditPayCmd cmd) throws Exception;
 
+    /** 停车数据接入异常判定详细信息 */
+    Results<OpenParkingDockingInfoDto> dockingInfo(OpenParkingDockingInfoCmd cmd) throws Exception;
+
+    /** 停车数据接入异常判定统计 */
+    Results<OpenParkingDockingStatistDto> dockingStatist(OpenParkingDockingStatistCmd cmd) throws Exception;
+
+    /** 停车数据停车记录列表 */
+    Results<Page<OpenParkingDriveRecordDto>> driveRecordList(OpenParkingDriveRecordCmd cmd)throws Exception;
 }
