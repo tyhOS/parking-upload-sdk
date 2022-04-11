@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: HeQuanChao
@@ -24,4 +25,7 @@ public class OpenParkingDockingStatistCmd {
 	@NotNull(message = "queryDate不可为空")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date queryDate;
+
+	/** 需要查询的停车场id数组 */
+	private List<Long> osStoreIds;
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @Author: HeQuanChao
@@ -19,9 +20,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class OpenParkingDockingStatistDto implements Serializable {
 
-	private Long dockingNum;
+	private List<Long> dockingList;
 
-	private Long onLineNum;
+	private List<Long> onLineList;
 
-	private Long offLineNum;
+	private List<Long> offLineList;
 }
