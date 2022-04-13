@@ -6,7 +6,7 @@
 
     <groupId>com.hfcsbc.sdk</groupId>
     <artifactId>upload-client</artifactId>
-    <version>inner-0.0.1.2-SNAPSHOT</version>
+    <version>inner-0.0.1.4-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
