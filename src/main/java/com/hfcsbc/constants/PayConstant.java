@@ -81,6 +81,7 @@ public class PayConstant {
      * SUCCESS_FULL_REFUND: 支付成功全额退款
      * FAILURE：支付失败（包含用户取消支付、超时关闭）
      * CLOSE：已关闭，订单超过操作时限
+     * REFUNDING: 退款中
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
@@ -91,6 +92,7 @@ public class PayConstant {
         String SUCCESS_FULL_REFUND = "SUCCESS_FULL_REFUND";
         String FAILURE = "FAILURE";
         String CLOSED = "CLOSED";
+        String REFUNDING = "REFUNDING";
     }
 
 
