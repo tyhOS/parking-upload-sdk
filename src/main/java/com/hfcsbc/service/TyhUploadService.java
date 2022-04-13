@@ -2,6 +2,7 @@ package com.hfcsbc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.hfcsbc.client.TyhUploadClient;
 import com.hfcsbc.client.command.upload.*;
 import com.hfcsbc.client.dto.*;
@@ -17,9 +18,7 @@ import org.bouncycastle.util.encoders.Base64;
 import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class TyhUploadService implements TyhUploadClient {
@@ -37,6 +36,7 @@ public class TyhUploadService implements TyhUploadClient {
 	public static final String POST_DOCKING_INFO = APPLICATION_NAME + "/ospark/open/api/v1/parkingDataDockingInfo";
 	public static final String POST_DOCKING_STATIST = APPLICATION_NAME + "/ospark/open/api/v1/parkingDataDockingStatistics";
 	public static final String POST_DRIVE_RECORD_LIST = APPLICATION_NAME + "/ospark/open/api/v1/parkingRecordList";
+	public static final String POST_PARKING_STATUS = APPLICATION_NAME + "/ospark/open/api/v1/parkingStatusMap";
 
 	private Options options;
 
@@ -163,4 +163,13 @@ public class TyhUploadService implements TyhUploadClient {
 		pageResults.getData().setContent(dto);
 		return pageResults;
 	}
+
+	@Override
+	public Results<OpenParkingDockingStatusDto> parkingDockingStatus() throws Exception {
+		TyhRequest tyhRequest = TyhRequest.builder().accessId(options.getAccessId())
+				.timeStamp(System.currentTimeMillis())
+				.build();
+		return restConnection.executePostWithSignature(POST_PARKING_STATUS, tyhRequest, OpenParkingDockingStatusDto.class);
+	}
+
 }

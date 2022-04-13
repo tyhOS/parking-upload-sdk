@@ -1,5 +1,6 @@
 package com.hfcsbc.client;
 
+import com.alibaba.fastjson.JSONObject;
 import com.hfcsbc.client.command.upload.*;
 import com.hfcsbc.client.dto.*;
 import com.hfcsbc.client.dto.trade.TradeRecordNormalDto;
@@ -7,6 +8,8 @@ import com.hfcsbc.client.model.Results;
 import com.hfcsbc.constants.Options;
 import com.hfcsbc.service.TyhUploadService;
 import com.hfcsbc.utils.Page;
+
+import java.util.Map;
 
 public interface TyhUploadClient {
 
@@ -38,4 +41,6 @@ public interface TyhUploadClient {
 
     /** 停车数据停车记录列表 */
     Results<Page<OpenParkingDriveRecordDto>> driveRecordList(OpenParkingDriveRecordCmd cmd)throws Exception;
+
+    Results<OpenParkingDockingStatusDto> parkingDockingStatus()throws Exception;
 }
