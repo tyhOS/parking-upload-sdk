@@ -23,11 +23,11 @@ public class TyhTalentCarService implements TyhTalentCarClient {
     public static final String SIGN_TYPE = "RSA2";
     public static final String APPLICATION_NAME = "/os-park";
     // 创建人才车
-    public static final String CREATE_TALENT_CARD = APPLICATION_NAME + "/os-park/ospark/talent/open/api/create";
+    public static final String CREATE_TALENT_CARD = APPLICATION_NAME + "/talent/open/api/create";
     // 编辑人才车
-    public static final String UPDATE_TALENT_CARD = APPLICATION_NAME + "/os-park/ospark/talent/open/api/update";
+    public static final String UPDATE_TALENT_CARD = APPLICATION_NAME + "/talent/open/api/update";
     // 作废人才车
-    public static final String INVALID_TALENT_CARD = APPLICATION_NAME + "/os-park/ospark/talent/open/api/invalid";
+    public static final String INVALID_TALENT_CARD = APPLICATION_NAME + "/talent/open/api/invalid";
 
     private final Options options;
 
