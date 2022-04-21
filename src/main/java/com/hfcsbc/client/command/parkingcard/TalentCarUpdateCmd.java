@@ -10,17 +10,21 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class TalentCardInvalidCmd {
+public class TalentCarUpdateCmd {
 
     /**
-     * 车牌号
+     * 要修改的车牌号
      */
-    private String carPlate;
+    private String oldCarPlate;
+
+    /**
+     * 修改之后的车牌号
+     */
+    private String newCarPlate;
 
     /**
      * 优惠标识 0：一天免4小时 1：一天免8小时 2：一天全免
      */
     private Integer discountType;
-
 
 }

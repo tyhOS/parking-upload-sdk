@@ -10,17 +10,12 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class TalentCardUpdateCmd {
+public class TalentCarCreateCmd {
 
     /**
-     * 要修改的车牌号
+     * 车牌号
      */
-    private String oldCarPlate;
-
-    /**
-     * 修改之后的车牌号
-     */
-    private String newCarPlate;
+    private String plateNumber;
 
     /**
      * 优惠标识 0：一天免4小时 1：一天免8小时 2：一天全免
