@@ -162,6 +162,7 @@ public class PayConstant {
      * USER_QR(用户扫码，扫商家码)
      * MCH_QR(商家扫码，扫用户码)
      * FACE(刷脸支付)
+     * CREDIT(无感支付)
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
@@ -173,6 +174,8 @@ public class PayConstant {
         String USER_QR = "USER_QR";
         String MCH_QR = "MCH_QR";
         String FACE = "FACE";
+        String H5 = "H5";
+        String CREDIT = "CREDIT";
     }
 
     /**
