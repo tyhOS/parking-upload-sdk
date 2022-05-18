@@ -1,8 +1,10 @@
 package com.hfcsbc.client.dto;
 
 import com.hfcsbc.constants.TyhConstants;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author qidongliang
@@ -12,6 +14,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class OpenParkingCheckRecordDto {
 
     @TyhConstants.CheckRecordFlag
