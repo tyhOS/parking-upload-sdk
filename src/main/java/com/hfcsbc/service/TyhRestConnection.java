@@ -41,6 +41,7 @@ public class TyhRestConnection {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        ConnectionFactory.build(options.getTimeout());
     }
 
     public <T> Results<T> executePostWithSignature(String path, TyhRequest tyhRequest, Class<T> tClass) throws Exception {
