@@ -38,6 +38,11 @@ public class TradeRefundResultDto {
     private String tpRefundNo;
 
     /**
+     * 商户退款单号
+     */
+    private String ownerRefundNo;
+
+    /**
      * 本次退款金额
      */
     private Integer refundFee;
