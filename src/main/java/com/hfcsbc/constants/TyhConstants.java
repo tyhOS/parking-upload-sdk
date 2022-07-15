@@ -108,4 +108,14 @@ public class TyhConstants {
         return "";
     }
 
+    /**
+     * 在停状态
+     */
+    @Retention(RetentionPolicy.SOURCE)
+    @Target({ElementType.FIELD, ElementType.PARAMETER})
+    public @interface ParkingStatus {
+        Integer PARKING = 0;        // 在停
+        Integer COMPLETE = 1;       // 完结
+    }
+
 }
