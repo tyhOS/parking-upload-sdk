@@ -43,6 +43,7 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String TRADE_MERGE_QUERY_PATH = APPLICATION_NAME + "/query/merge/trade/v1/open";
     public static final String TRADE_REFUND_QUERY_PATH = APPLICATION_NAME + "/query/refund/v1/open";
     public static final String TRADE_RECORD_QUERY_PATH = APPLICATION_NAME + "/tradeRecord/queryPage/v1/open";
+    public static final String TRADE_RECORD_TOTAL_QUERY_PATH = APPLICATION_NAME + "/tradeRecord/queryTotal/v1/open";
 
     /* -------------------------- 退款相关 --------------------------- */
     public static final String TRADE_REFUND_PATH = APPLICATION_NAME + "/refund/v1/open";
@@ -129,6 +130,11 @@ public class TyhPaymentService implements TyhPaymentClient {
         List<TradeRecordNormalDto> tradeRecordNormalDto = JSONObject.parseArray(JSONObject.toJSONString(pageResults.getData().getContent()), TradeRecordNormalDto.class);
         pageResults.getData().setContent(tradeRecordNormalDto);
         return pageResults;
+    }
+
+    @Override
+    public Results<TradeRecordTotalDto> tradeRecordTotalQuery(TradeRecordQueryCmd cmd)  throws Exception {
+        return generalPostRequest(cmd, TRADE_RECORD_TOTAL_QUERY_PATH, TradeRecordTotalDto.class);
     }
 
     @Override
