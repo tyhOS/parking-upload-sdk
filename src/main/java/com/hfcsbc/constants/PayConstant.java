@@ -81,6 +81,7 @@ public class PayConstant {
      * SUCCESS_FULL_REFUND: 支付成功全额退款
      * FAILURE：支付失败（包含用户取消支付、超时关闭）
      * CLOSE：已关闭，订单超过操作时限
+     * REFUNDING: 退款中
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
@@ -91,6 +92,7 @@ public class PayConstant {
         String SUCCESS_FULL_REFUND = "SUCCESS_FULL_REFUND";
         String FAILURE = "FAILURE";
         String CLOSED = "CLOSED";
+        String REFUNDING = "REFUNDING";
     }
 
 
@@ -160,6 +162,7 @@ public class PayConstant {
      * USER_QR(用户扫码，扫商家码)
      * MCH_QR(商家扫码，扫用户码)
      * FACE(刷脸支付)
+     * CREDIT(无感支付)
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
@@ -171,6 +174,8 @@ public class PayConstant {
         String USER_QR = "USER_QR";
         String MCH_QR = "MCH_QR";
         String FACE = "FACE";
+        String H5 = "H5";
+        String CREDIT = "CREDIT";
     }
 
     /**

@@ -73,6 +73,11 @@ public interface TyhPaymentClient {
      */
     Results<Page<TradeRecordNormalDto>> tradeRecordQuery(TradeRecordQueryCmd query) throws Exception;
 
+    /**
+     * 查询交易记录合计值
+     */
+    Results<TradeRecordTotalDto> tradeRecordTotalQuery(TradeRecordQueryCmd cmd) throws Exception;
+
 
     /**
      * 根据传参，获取加密后的请求参数

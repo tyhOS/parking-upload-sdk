@@ -10,4 +10,6 @@ public interface Options {
 
   Boolean getAllowUpload();
 
+  Long getTimeout();
+
 }

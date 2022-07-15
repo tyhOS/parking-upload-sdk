@@ -18,86 +18,91 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ConnectionFactory {
 
-  private static Boolean LATENCY_DEBUG_SWATCH = Boolean.FALSE;
+    private static Boolean LATENCY_DEBUG_SWATCH = Boolean.FALSE;
 
-  private static LinkedBlockingQueue<NetworkLatency> LATENCY_DEBUG_QUEUE = new LinkedBlockingQueue<>();
+    private static LinkedBlockingQueue<NetworkLatency> LATENCY_DEBUG_QUEUE = new LinkedBlockingQueue<>();
 
-  private static ConnectionPool connectionPool =
-      new ConnectionPool(20, 300, TimeUnit.SECONDS);
+    private static ConnectionPool connectionPool =
+            new ConnectionPool(20, 300, TimeUnit.SECONDS);
 
-  private static final OkHttpClient client = new OkHttpClient.Builder()
-      .followSslRedirects(false)
-      .followRedirects(false)
-      .connectTimeout(5000, TimeUnit.MILLISECONDS)
-      .readTimeout(5000, TimeUnit.MILLISECONDS)
-      .writeTimeout(5000, TimeUnit.MILLISECONDS)
-      .connectionPool(connectionPool)
-      .addNetworkInterceptor(new Interceptor() {
-        @NotNull
-        @Override
-        public Response intercept(@NotNull Chain chain) throws IOException {
-          Request request = chain.request();
+    private static OkHttpClient client;
 
-          Long startNano = System.nanoTime();
 
-          Response response = chain.proceed(request);
+    public static void build(Long timeout) {
+        client = new OkHttpClient.Builder()
+                .followSslRedirects(false)
+                .followRedirects(false)
+                .connectTimeout(timeout, TimeUnit.MILLISECONDS)
+                .readTimeout(timeout, TimeUnit.MILLISECONDS)
+                .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+                .connectionPool(connectionPool)
+                .addNetworkInterceptor(new Interceptor() {
+                    @NotNull
+                    @Override
+                    public Response intercept(@NotNull Chain chain) throws IOException {
+                        Request request = chain.request();
 
-          Long endNano = System.nanoTime();
+                        Long startNano = System.nanoTime();
 
-          if (LATENCY_DEBUG_SWATCH) {
-            LATENCY_DEBUG_QUEUE.add(new NetworkLatency(request.url().url().getPath(), startNano, endNano));
-          }
+                        Response response = chain.proceed(request);
 
-          return response;
-        }
-      })
-      .build();
+                        Long endNano = System.nanoTime();
 
-  public static String execute(Request request) {
+                        if (LATENCY_DEBUG_SWATCH) {
+                            LATENCY_DEBUG_QUEUE.add(new NetworkLatency(request.url().url().getPath(), startNano, endNano));
+                        }
 
-    Response response = null;
-    String str = null;
-    try {
-      response = client.newCall(request).execute();
-      if (response.code() != 200) {
-        throw new TyhException(TyhErrorCode.REQUEST_NETWORKS_ERROR.getCode(), "[Execute] Response Status Error : " + response.code() + " message:" + response.message());
-      }
-      if (response.body() != null) {
-        str = Objects.requireNonNull(response.body()).string();
-        response.close();
-      } else {
-        throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
-      }
-      return str;
-    } catch (IOException e) {
-      e.printStackTrace();
-      throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
+                        return response;
+                    }
+                })
+                .build();
     }
 
-  }
+    public static String execute(Request request) {
 
-  public static void setLatencyDebug() {
-    LATENCY_DEBUG_SWATCH = Boolean.TRUE;
-  }
+        Response response = null;
+        String str = null;
+        try {
+            response = client.newCall(request).execute();
+            if (response.code() != 200) {
+                throw new TyhException(TyhErrorCode.REQUEST_NETWORKS_ERROR.getCode(), "[Execute] Response Status Error : " + response.code() + " message:" + response.message());
+            }
+            if (response.body() != null) {
+                str = Objects.requireNonNull(response.body()).string();
+                response.close();
+            } else {
+                throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
+            }
+            return str;
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new TyhException(TyhErrorCode.INTERNAL_SERVER.getCode(), "[Execute] Cannot get the response from server");
+        }
 
-  public static LinkedBlockingQueue<NetworkLatency> getLatencyDebugQueue() {
-    return LATENCY_DEBUG_QUEUE;
-  }
+    }
 
-  public static void clearLatencyDebugQueue() {
-    LATENCY_DEBUG_QUEUE.clear();
-  }
+    public static void setLatencyDebug() {
+        LATENCY_DEBUG_SWATCH = Boolean.TRUE;
+    }
 
-  @Data
-  @Builder
-  @AllArgsConstructor
-  @NoArgsConstructor
-  public static class NetworkLatency {
+    public static LinkedBlockingQueue<NetworkLatency> getLatencyDebugQueue() {
+        return LATENCY_DEBUG_QUEUE;
+    }
 
-    private String path;
+    public static void clearLatencyDebugQueue() {
+        LATENCY_DEBUG_QUEUE.clear();
+    }
 
-    private Long startNanoTime;
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class NetworkLatency {
 
-    private Long endNanoTime;
-  }
+        private String path;
+
+        private Long startNanoTime;
+
+        private Long endNanoTime;
+    }
 }

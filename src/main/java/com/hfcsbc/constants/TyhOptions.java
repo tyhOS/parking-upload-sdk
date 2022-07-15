@@ -13,6 +13,7 @@ import lombok.ToString;
 public class TyhOptions implements Options {
 
   public static final String DEFAULT_REST_HOST = "https://os.hfcsbc.com";
+  public static final Long DEFAULT_TIME_OUT = 5000L;
 
   private String restHost;
 
@@ -21,6 +22,8 @@ public class TyhOptions implements Options {
   private String secretKey;
 
   private Boolean allowUpload;
+
+  private Long timeout;
 
   @Override
   public String getAccessId() {
@@ -40,6 +43,11 @@ public class TyhOptions implements Options {
   @Override
   public Boolean getAllowUpload() {
     return this.allowUpload == null ? Boolean.TRUE : this.allowUpload;
+  }
+
+  @Override
+  public Long getTimeout() {
+    return this.timeout == null ? DEFAULT_TIME_OUT : this.timeout;
   }
 
 }
