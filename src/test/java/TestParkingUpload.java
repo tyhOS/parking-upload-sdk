@@ -20,7 +20,7 @@ import org.junit.Test;
 @Slf4j
 public class TestParkingUpload {
 
-    public static final String STAGING_HOST = "http://stagingjiguang.hfcsbc.com:8282";
+    public static final String STAGING_HOST = "http://101.132.226.17/staging-api";
     public static final String ACCESS_ID = "16399969350096021";
     public static final String SECRET_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCD4U/qo7v4b+5g\n" +
             "PwAijiVvZ73xbtaqTFMMVonCW3kFi+y0+iKizSL/mhTb7QmcBbvGmYxyIox3/TLL\n" +
@@ -62,9 +62,9 @@ public class TestParkingUpload {
         // 车辆入场
         OpenParkingDriveInCmd cmd = OpenParkingDriveInCmd.builder()
                 .osStoreId(3163999803024009l)
-                .carPlate("黑A11111")
+                .carPlate("黑A22222")
                 .carPlateColor(TyhConstants.CarPlateColor.BLUE)
-                .orderId("order123456615")
+                .orderId("order123456617")
                 .inTime(System.currentTimeMillis())
                 .inChannel("东入口")
                 .build();
