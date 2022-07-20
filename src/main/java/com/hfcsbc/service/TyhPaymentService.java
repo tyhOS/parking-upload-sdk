@@ -51,7 +51,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 多码合一 --------------------------- */
     public static final String MULTI_QR_TRADE = APPLICATION_NAME + "/trade/multiQR/v1/open";
-    public static final String MULTI_QR_MERGE_TRADE = "/trade/multiQR/merge/v1/open";
+    public static final String MULTI_QR_MERGE_TRADE = APPLICATION_NAME + "/trade/multiQR/merge/v1/open";
 
 
     /**
