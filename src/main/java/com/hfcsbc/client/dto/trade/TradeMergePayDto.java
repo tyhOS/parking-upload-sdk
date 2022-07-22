@@ -16,6 +16,11 @@ public class TradeMergePayDto {
     private String osMergeNo;
 
     /**
+     * 商户自传的并笔支付编号
+     */
+    private String ownerMergeNo;
+
+    /**
      * 时间戳，标准北京时间
      */
     private Long timestamp;
