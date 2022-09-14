@@ -11,31 +11,31 @@ import org.junit.Test;
 public class TestParkingUpload {
 
     public static final String ACCESS_ID = "16399969350096021";
-    public static final String SECRET_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCD4U/qo7v4b+5g\n" +
-            "PwAijiVvZ73xbtaqTFMMVonCW3kFi+y0+iKizSL/mhTb7QmcBbvGmYxyIox3/TLL\n" +
-            "MFxhJ08stdsSrW5r4BwcdC80EwyO2ciA6gN3BCH7+uaZmDr++6+WrLlVbXUXBNlA\n" +
-            "hsDFlcwTD9o1KxHJXL2zUYuSIGWPjS/1VWfoiLajp//kLOB8S1Jkxi/bFaNRzU4G\n" +
-            "Z98H0Hwrv1HvGkO4h18m86qrqru7LgTNlcPdqercp4t7lT/th6FdDE8qsYlXrfGq\n" +
-            "ExYNq0Sw95njZmmJACFCGq0dM4s5vE3hAE9t+p/98FoNDoj3yPiU7VFQ8TfHwzJD\n" +
-            "AP86hONzAgMBAAECggEABaR6OtvOiw6e8FdBtjjGuUGDCvVnEdo6I2kAc+ReBTK7\n" +
-            "afLZ0IVeXflFszMtGhPUuOaQ78EyqV+X8MGc8jswVAVj3iS1eMAZ8820x1GZU/NV\n" +
-            "dM6OX2U53wIZI7EztP0nwhaZx2HrhJSchvo8/TcviBFBkMzK8gaZxzZR9mqUbdPY\n" +
-            "Bo2MontPjOaZUH8ZyCuQ/+H6vPjM6Md5FMrnMlBtFj8PEjm+ptSaJ06sZ2bNqYnq\n" +
-            "hpe6mUMt6PaGkw6dpm21XtZlKbIRqbyszI0ZdJVXDMJg31ltPxIaWBH2SgUlrMhT\n" +
-            "wk02HyEAgxNnz/0lFlJoP7j4OkYuAwXxUFZvayvUQQKBgQD/sqVRkbAd/IzRmM/J\n" +
-            "9Z+beenv0/dvjDrZqL7qUPRhAVKXa3+t21y4GqVgJFoQthJGdwNJmnCUYFmPLeBL\n" +
-            "DAfQMg4DSTJAjnclJBV8H5XUKuY4enjQ6D/VDA+2WFXDHUUFWj5mTtWL/zN8DLK8\n" +
-            "x48fOEIMuSI/M4deyR/3G4WeyQKBgQCECTV069mBoFYjyVExneuENLjzzF01dBln\n" +
-            "7NEgyp1ZASUH0VC8hZao4d40D/gxvqopqIjfshSHaIthUUAHxoiZm9v34NZCOvDQ\n" +
-            "yzQybUfensVFf1wx9qF+C0mPyUzT/ILrhwi4J5/QyuNQXKo3PQ3Kj1HM4P4OA/yd\n" +
-            "8yVYURjiWwKBgQDRtbzst2YQUe9Uf9X7t52dsFFzRw9qx0IE/ecG2jpzzNfmJF5l\n" +
-            "QsI6pG/5+BZ+GjXG4RkrJqUqrBMH4QJRyp4l3MetXjz+wVlqdrvAP09s4XpL2/Z2\n" +
-            "r+SaYPgJ/0znZ3wSNb9zvThbR4T8OpXlSm5RlpxlPvmdiC+AR8gVrNbcMQKBgFr+\n" +
-            "Ma3zQAF6awLcoa0NBRsmbnPt2iqVaVDavsDXgZquFEQP95EEi3C1wDmm68f0ezac\n" +
-            "ZD+tbUJoRO37XaI+KzOZWv24IFCiaAWslLtP3qDIUHF1tSblriO8SaTi+KR7OApz\n" +
-            "FAo9nID64a8nPVM2K0P2g0wrnkoway67O3hi40BTAoGAT/qvEoolXQrXJN2ahIaq\n" +
-            "Giqopi6BQVC6fT4Cs7Afccq9UAqo4nzMkDAIcspPIJe65UZPyqUNkmLTmxAl7xUB\n" +
-            "XurQ2eQEZx2yFGZWnyIBzEl6rzoPXOHM+knNuva2cQVibt1Dne6vvWdaEOcBo4E3\n" +
+    public static final String SECRET_KEY = "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCD4U/qo7v4b+5g" +
+            "PwAijiVvZ73xbtaqTFMMVonCW3kFi+y0+iKizSL/mhTb7QmcBbvGmYxyIox3/TLL" +
+            "MFxhJ08stdsSrW5r4BwcdC80EwyO2ciA6gN3BCH7+uaZmDr++6+WrLlVbXUXBNlA" +
+            "hsDFlcwTD9o1KxHJXL2zUYuSIGWPjS/1VWfoiLajp//kLOB8S1Jkxi/bFaNRzU4G" +
+            "Z98H0Hwrv1HvGkO4h18m86qrqru7LgTNlcPdqercp4t7lT/th6FdDE8qsYlXrfGq" +
+            "ExYNq0Sw95njZmmJACFCGq0dM4s5vE3hAE9t+p/98FoNDoj3yPiU7VFQ8TfHwzJD" +
+            "AP86hONzAgMBAAECggEABaR6OtvOiw6e8FdBtjjGuUGDCvVnEdo6I2kAc+ReBTK7" +
+            "afLZ0IVeXflFszMtGhPUuOaQ78EyqV+X8MGc8jswVAVj3iS1eMAZ8820x1GZU/NV" +
+            "dM6OX2U53wIZI7EztP0nwhaZx2HrhJSchvo8/TcviBFBkMzK8gaZxzZR9mqUbdPY" +
+            "Bo2MontPjOaZUH8ZyCuQ/+H6vPjM6Md5FMrnMlBtFj8PEjm+ptSaJ06sZ2bNqYnq" +
+            "hpe6mUMt6PaGkw6dpm21XtZlKbIRqbyszI0ZdJVXDMJg31ltPxIaWBH2SgUlrMhT" +
+            "wk02HyEAgxNnz/0lFlJoP7j4OkYuAwXxUFZvayvUQQKBgQD/sqVRkbAd/IzRmM/J" +
+            "9Z+beenv0/dvjDrZqL7qUPRhAVKXa3+t21y4GqVgJFoQthJGdwNJmnCUYFmPLeBL" +
+            "DAfQMg4DSTJAjnclJBV8H5XUKuY4enjQ6D/VDA+2WFXDHUUFWj5mTtWL/zN8DLK8" +
+            "x48fOEIMuSI/M4deyR/3G4WeyQKBgQCECTV069mBoFYjyVExneuENLjzzF01dBln" +
+            "7NEgyp1ZASUH0VC8hZao4d40D/gxvqopqIjfshSHaIthUUAHxoiZm9v34NZCOvDQ" +
+            "yzQybUfensVFf1wx9qF+C0mPyUzT/ILrhwi4J5/QyuNQXKo3PQ3Kj1HM4P4OA/yd" +
+            "8yVYURjiWwKBgQDRtbzst2YQUe9Uf9X7t52dsFFzRw9qx0IE/ecG2jpzzNfmJF5l" +
+            "QsI6pG/5+BZ+GjXG4RkrJqUqrBMH4QJRyp4l3MetXjz+wVlqdrvAP09s4XpL2/Z2" +
+            "r+SaYPgJ/0znZ3wSNb9zvThbR4T8OpXlSm5RlpxlPvmdiC+AR8gVrNbcMQKBgFr+" +
+            "Ma3zQAF6awLcoa0NBRsmbnPt2iqVaVDavsDXgZquFEQP95EEi3C1wDmm68f0ezac" +
+            "ZD+tbUJoRO37XaI+KzOZWv24IFCiaAWslLtP3qDIUHF1tSblriO8SaTi+KR7OApz" +
+            "FAo9nID64a8nPVM2K0P2g0wrnkoway67O3hi40BTAoGAT/qvEoolXQrXJN2ahIaq" +
+            "Giqopi6BQVC6fT4Cs7Afccq9UAqo4nzMkDAIcspPIJe65UZPyqUNkmLTmxAl7xUB" +
+            "XurQ2eQEZx2yFGZWnyIBzEl6rzoPXOHM+knNuva2cQVibt1Dne6vvWdaEOcBo4E3" +
             "McSals11axfnozYJoquz/ug=";
 
 
