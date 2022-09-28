@@ -28,4 +28,8 @@ public class TradeQuery {
      */
     private String tpTradeNo;
 
+    /**
+     * 商户创建的订单业务号
+     */
+    private String ownerBusinessNo;
 }

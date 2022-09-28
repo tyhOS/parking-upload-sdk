@@ -63,4 +63,9 @@ public class OpenParkingDriveOutCmd {
     @NotNull(message = "outChannel不可为空")
     private String outChannel;
 
+    /**
+     * 停车售卖记录
+     */
+    private Long cardRecordId;
+
 }
