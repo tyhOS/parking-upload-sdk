@@ -1,5 +1,6 @@
 package com.hfcsbc.client.dto.trade;
 
+import com.hfcsbc.client.dto.AppToMiniAppStatusDto;
 import lombok.Data;
 
 /**
@@ -38,4 +39,8 @@ public class TradePayDto {
     // 支付记录id，兼容tyh-base的payRecordId
     private Long tempId;
 
+    /**
+     * app跳转小程序参数
+     */
+    private AppToMiniAppStatusDto gotoMiniAppStatus;
 }

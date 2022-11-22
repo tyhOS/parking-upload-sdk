@@ -1,5 +1,6 @@
 package com.hfcsbc.client.dto.trade;
 
+import com.hfcsbc.client.dto.AppToMiniAppStatusDto;
 import lombok.Data;
 
 /**
@@ -29,5 +30,10 @@ public class TradeMergePayDto {
      * 调起支付的签名信息
      */
     private String sign;
+
+    /**
+     * app跳转小程序参数
+     */
+    private AppToMiniAppStatusDto gotoMiniAppStatus;
 
 }
