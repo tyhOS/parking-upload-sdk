@@ -1,6 +1,6 @@
 package com.hfcsbc.client.dto.trade;
 
-import com.hfcsbc.client.dto.AppToMiniAppStatusDto;
+import com.hfcsbc.client.dto.AppPayJumpConfigDto;
 import lombok.Data;
 
 /**
@@ -40,7 +40,7 @@ public class TradePayDto {
     private Long tempId;
 
     /**
-     * app跳转小程序参数
+     * app跳转参数
      */
-    private AppToMiniAppStatusDto gotoMiniAppStatus;
+    private AppPayJumpConfigDto jumpConfig;
 }
