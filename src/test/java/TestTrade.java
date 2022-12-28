@@ -93,10 +93,10 @@ public class TestTrade {
         // 车辆入场
         OpenParkingDriveInCmd cmd = OpenParkingDriveInCmd.builder()
                 .osStoreId(3163999803024009L)
-                .carPlate("新A10086")
+                .carPlate("新C10086")
                 .carPlateColor(TyhConstants.CarPlateColor.BLUE)
-                .orderId("order21321111")
-                .inTime(1675382471000L)
+                .orderId("order21321112")
+                .inTime(1687949411000L)
                 .inChannel("东入口")
                 .build();
 
@@ -121,11 +121,11 @@ public class TestTrade {
         // 车辆入场
         OpenParkingDriveOutCmd cmd = OpenParkingDriveOutCmd.builder()
                 .osStoreId(3163999803024009L)
-                .carPlate("新A10086")
+                .carPlate("新B10086")
                 .carPlateColor(TyhConstants.CarPlateColor.BLUE)
                 .orderId("order21321111")
-                .inTime(1672545930000L)
-                .outTime(1672546110000L)
+                .inTime(1687949411000L)
+                .outTime(1687949591000L)
                 .duration(1800)
                 .parkType(TyhConstants.ParkType.TEMPORARY)
                 .billingAmount(500)
