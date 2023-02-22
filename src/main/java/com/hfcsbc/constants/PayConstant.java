@@ -142,7 +142,7 @@ public class PayConstant {
      * ALI_PAY 支付宝
      * WX_PAY 微信
      * CCB 建行龙支付
-     * CMB 招行一网通
+     * ICBC 工银e支付
      */
     @Retention(RetentionPolicy.SOURCE)
     @Target({ElementType.FIELD, ElementType.PARAMETER})
@@ -151,6 +151,7 @@ public class PayConstant {
         String WX_PAY = "WX_PAY";
         String CCB = "CCB";
         String CMB = "CMB";
+        String ICBC = "ICBC";
     }
 
     /**
