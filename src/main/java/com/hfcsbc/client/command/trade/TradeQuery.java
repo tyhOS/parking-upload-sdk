@@ -32,4 +32,9 @@ public class TradeQuery {
      * 商户创建的订单业务号
      */
     private String ownerBusinessNo;
+
+    /**
+     * 服务商id，该参数只有超级服务商使用
+     */
+    private Long superOsPartnerId;
 }
