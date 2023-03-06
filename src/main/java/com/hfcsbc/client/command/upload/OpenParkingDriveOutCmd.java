@@ -63,4 +63,15 @@ public class OpenParkingDriveOutCmd {
     @NotNull(message = "outChannel不可为空")
     private String outChannel;
 
+    /**
+     * 停车售卖记录
+     */
+    private Long cardRecordId;
+
+    /**
+     * 条件必传	停车优惠时长，单位：秒。 当parkType不等于1时必传，代表该停车类型总共优惠了多少秒。
+     */
+    private Integer parkDiscountTime;
+
+
 }

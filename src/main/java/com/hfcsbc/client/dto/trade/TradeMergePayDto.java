@@ -1,5 +1,6 @@
 package com.hfcsbc.client.dto.trade;
 
+import com.hfcsbc.client.dto.AppPayJumpConfigDto;
 import lombok.Data;
 
 /**
@@ -16,6 +17,11 @@ public class TradeMergePayDto {
     private String osMergeNo;
 
     /**
+     * 商户自传的并笔支付编号
+     */
+    private String ownerMergeNo;
+
+    /**
      * 时间戳，标准北京时间
      */
     private Long timestamp;
@@ -24,5 +30,10 @@ public class TradeMergePayDto {
      * 调起支付的签名信息
      */
     private String sign;
+
+    /**
+     * app跳转参数
+     */
+    private AppPayJumpConfigDto jumpConfig;
 
 }

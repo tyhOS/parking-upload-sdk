@@ -51,6 +51,7 @@ public class TyhPaymentService implements TyhPaymentClient {
 
     /* -------------------------- 多码合一 --------------------------- */
     public static final String MULTI_QR_TRADE = APPLICATION_NAME + "/trade/multiQR/v1/open";
+    public static final String MULTI_QR_MERGE_TRADE = APPLICATION_NAME + "/trade/multiQR/merge/v1/open";
 
 
     /**
@@ -149,6 +150,11 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception {
         return generalPostRequest(cmd, MULTI_QR_TRADE, TradePayDto.class);
+    }
+
+    @Override
+    public Results<TradeMergePayDto> multiQrMergeTrade(TradeMergeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, MULTI_QR_MERGE_TRADE, TradeMergePayDto.class);
     }
 
     @Override

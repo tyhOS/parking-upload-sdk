@@ -90,6 +90,11 @@ public interface TyhPaymentClient {
     Results<TradePayDto> multiQRTrade(TradeCmd cmd) throws Exception;
 
     /**
+     * 多码合一交易请求
+     */
+    Results<TradeMergePayDto> multiQrMergeTrade(TradeMergeCmd cmd) throws Exception;
+
+    /**
      * 查询车牌是否可用无感支付
      */
     Results<CreditPayCarStatusDto> creditCarStatus(CreditPayCarStatusCmd cmd) throws Exception;
