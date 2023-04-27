@@ -20,10 +20,10 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingDockingInfoCmd {
 
-	@NotNull(message = "osStoreId不可为空")
-	private Long osStoreId;
+    @NotNull(message = "osStoreCode不可为空")
+    private Long osStoreCode;
 
-	@NotNull(message = "queryDate不可为空")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date queryDate;
+    @NotNull(message = "queryDate不可为空")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date queryDate;
 }

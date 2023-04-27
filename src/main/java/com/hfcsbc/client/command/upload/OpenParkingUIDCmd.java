@@ -23,8 +23,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingUIDCmd {
 
-    @NotNull(message = "osStoreId不可为空")
-    private Long osStoreId;
+    @NotNull(message = "osStoreCode不可为空")
+    private Long osStoreCode;
 
     @NotNull(message = "checkDate不可为空")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

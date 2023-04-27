@@ -21,8 +21,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OpenParkingImageCmd {
 
-    @NotNull(message = "osStoreId不可为空")
-    private Long osStoreId;
+    @NotNull(message = "osStoreCode不可为空")
+    private Long osStoreCode;
 
     @NotNull(message = "carPlate不可为空")
     private String carPlate;

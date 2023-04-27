@@ -20,8 +20,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OpenParkingSurplusCmd {
 
-    @NotNull(message = "osStoreId不可为空")
-    private Long osStoreId;
+    @NotNull(message = "osStoreCode不可为空")
+    private Long osStoreCode;
 
     @NotNull(message = "total不可为空")
     private Integer total;
