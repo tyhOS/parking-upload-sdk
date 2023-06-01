@@ -22,10 +22,12 @@ import java.util.List;
 @AllArgsConstructor
 public class OpenParkingDockingStatistCmd {
 
-	@NotNull(message = "queryDate不可为空")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date queryDate;
+    @NotNull(message = "queryDate不可为空")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date queryDate;
 
-	/** 需要查询的停车场id数组 */
-	private List<Long> osStoreIds;
+    /**
+     * 需要查询的停车场id数组
+     */
+    private List<String> osStoreCodes;
 }

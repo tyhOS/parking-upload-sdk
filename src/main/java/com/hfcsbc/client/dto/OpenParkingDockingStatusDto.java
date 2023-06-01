@@ -16,5 +16,5 @@ import java.util.Map;
 @ToString
 public class OpenParkingDockingStatusDto {
 
-	private Map<Long,Integer> parkingStatusMap;
+	private Map<String,Integer> parkingStatusMap;
 }

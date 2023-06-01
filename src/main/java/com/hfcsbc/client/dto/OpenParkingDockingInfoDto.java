@@ -25,6 +25,11 @@ public class OpenParkingDockingInfoDto {
     private Long osStoreId;
 
     /**
+     * 停车场编码
+     */
+    private String osStoreCode;
+
+    /**
      * 驶入及时的数据
      */
     private Long inTimelyNum;
@@ -110,6 +115,23 @@ public class OpenParkingDockingInfoDto {
      * 出场图片数据状态 0表示正常，1表示异常
      */
     private Integer outImageStatus;
+
+    /**
+     * 余位上传接口请求标记
+     */
+
+    private Boolean uploadSurplusApiFlag;
+
+    /**
+     * 对账接口请求标记
+     */
+
+    private Boolean uploadCheckRecordApiFlag;
+
+    /**
+     * 对接状态
+     */
+    private Boolean dockingFlag;
 
     /**
      * 对账时间

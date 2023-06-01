@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -22,8 +23,8 @@ import java.util.Date;
 @AllArgsConstructor
 public class OpenParkingCheckRecordCmd {
 
-    @NotNull(message = "osStoreCode不可为空")
-    private Long osStoreCode;
+    @NotEmpty(message = "osStoreCode不可为空")
+    private String osStoreCode;
 
     @NotNull(message = "checkDate不可为空")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

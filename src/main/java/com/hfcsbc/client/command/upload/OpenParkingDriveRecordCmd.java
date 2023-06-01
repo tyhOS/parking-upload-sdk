@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ public class OpenParkingDriveRecordCmd {
 	/**
 	 * 停车场号即门店号
 	 */
-	private Long osStoreId;
+    private String osStoreCode;
 
 	/**
 	 * 订单归属商户号
@@ -95,5 +96,5 @@ public class OpenParkingDriveRecordCmd {
 	 * 每页查询数
 	 */
 	private Integer size = 20;
-	
+
 }
