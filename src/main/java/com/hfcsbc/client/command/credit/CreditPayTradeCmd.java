@@ -50,16 +50,16 @@ public class CreditPayTradeCmd {
      ******************************************************************************************************************/
 
     /**
-     * 开放平台商户ID
+     * 开放平台商户编号
      */
-    @NotNull(message = "开放平台商户id不能为空")
-    private Long osMerchantId;
+    @NotNull(message = "开放平台商户编号不能为空")
+    private String osMerchantCode;
 
     /**
-     * 开放平台门店id
+     * 开放平台门店编号
      */
-    @NotNull(message = "商户id不能为空")
-    private Long osStoreId;
+    @NotNull(message = "门店编号不能为空")
+    private String osStoreCode;
 
     /**
      * 支付业务,传入此值会进行校验,未指定时,不传

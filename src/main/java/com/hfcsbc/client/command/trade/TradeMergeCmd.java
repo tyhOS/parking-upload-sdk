@@ -100,15 +100,15 @@ public class TradeMergeCmd {
         private String title;
 
         /**
-         * 平台分配商户ID
+         * 平台分配商户编号
          */
         @NotNull
-        private Long osMerchantId;
+        private String osMerchantCode;
 
         /**
-         * 平台分配商户门店ID
+         * 平台分配门店编号
          */
-        private Long osStoreId;
+        private String osStoreCode;
 
         /**
          * 通知地址 通知URL必须为直接可访问的URL，不允许携带查询串，要求必须为https地址。如果主单notifyUrl 无值,此属性有值,则多次回调

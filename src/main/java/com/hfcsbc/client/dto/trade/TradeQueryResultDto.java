@@ -51,19 +51,14 @@ public class TradeQueryResultDto {
     private String remark;
 
     /**
-     * 开放平台分配给商户的服务商ID
+     * 商户编号
      */
-    private Long osPartnerId;
+    private String osMerchantCode;
 
     /**
-     * 开放平台分配给商户的商户ID
+     * 门店编号
      */
-    private Long osMerchantId;
-
-    /**
-     * 开放平台商户门店ID ,可以为空
-     */
-    private Long osStoreId;
+    private String osStoreCode;
 
     /**
      * 下单时间, 返回时间戳 标准北京时间

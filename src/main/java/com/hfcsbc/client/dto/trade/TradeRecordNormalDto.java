@@ -29,29 +29,19 @@ public class TradeRecordNormalDto {
     private String tpMerchantId;
 
     /**
-     * 开放平台服务商ID
+     * 商户编号
      */
-    private Long osPartnerId;
+    private String osMerchantCode;
 
     /**
-     * 开放平台服务商名称
+     * 门店编号
      */
-    private String osPartnerName;
-
-    /**
-     * 开放平台商户ID
-     */
-    private Long osMerchantId;
+    private String osStoreCode;
 
     /**
      * 开放平台商户名称
      */
     private String osMerchantName;
-
-    /**
-     * 开放平台商户门店ID
-     */
-    private Long osStoreId;
 
     /**
      * 开放平台商户门店名称
