@@ -105,7 +105,7 @@ public class TradeCmd {
     private String ownerAppBuyerId;
 
     /**
-     * 服务商id，该参数只有超级服务商使用
+     * 技术服务商id，该参数只有超级服务商使用
      */
-    private Long superOsPartnerId;
+    private Long superTePartnerId;
 }
