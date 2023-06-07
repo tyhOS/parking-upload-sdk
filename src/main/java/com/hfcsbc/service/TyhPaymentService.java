@@ -32,10 +32,10 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String TRADE_BUYER_ID_PATH = APPLICATION_NAME + "/trade/auth/sign/buyerId/v1/open";
 
     /* -------------------------- 交易和关闭 -------------------------- */
-    public static final String TRADE_PATH = APPLICATION_NAME + "/trade/v1/open";
+    public static final String TRADE_PATH = APPLICATION_NAME + "/trade/v2/open";
 
     public static final String TRADE_CLOSE_PATH = APPLICATION_NAME + "/trade/close/v1/open";
-    public static final String MERGE_TRADE_PATH = APPLICATION_NAME + "/trade/merge/v1/open";
+    public static final String MERGE_TRADE_PATH = APPLICATION_NAME + "/trade/merge/v2/open";
     public static final String MERGE_TRADE_CLOSE_PATH = APPLICATION_NAME + "/trade/close/merge/v1/open";
 
     /* -------------------------- 交易查询 -------------------------- */
@@ -50,14 +50,14 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String CREDIT_REFUND_PATH = APPLICATION_NAME + "/refund/credit/v1/open";
 
     /* -------------------------- 多码合一 --------------------------- */
-    public static final String MULTI_QR_TRADE = APPLICATION_NAME + "/trade/multiQR/v1/open";
-    public static final String MULTI_QR_MERGE_TRADE = APPLICATION_NAME + "/trade/multiQR/merge/v1/open";
+    public static final String MULTI_QR_TRADE = APPLICATION_NAME + "/trade/multiQR/v2/open";
+    public static final String MULTI_QR_MERGE_TRADE = APPLICATION_NAME + "/trade/multiQR/merge/v2/open";
 
 
     /**
      * 无感支付
      */
-    public static final String CREDIT_TRADE_PATH = APPLICATION_NAME + "/trade/credit/v1/open";             // 无感支付申请扣款
+    public static final String CREDIT_TRADE_PATH = APPLICATION_NAME + "/trade/credit/v2/open";             // 无感支付申请扣款
     public static final String CREDIT_CAR_STATUS = APPLICATION_NAME + "/trade/credit/carStatus/v1/open";   // 查询车牌是否可用无感支付
 
 
@@ -128,9 +128,13 @@ public class TyhPaymentService implements TyhPaymentClient {
     public Results<Page<TradeRecordNormalDto>> tradeRecordQuery(TradeRecordQueryCmd query) throws Exception {
         Page<TradeRecordNormalDto> page = new Page<>();
         Results<Page<TradeRecordNormalDto>> pageResults = generalPostRequest(query, TRADE_RECORD_QUERY_PATH, (Class<Page<TradeRecordNormalDto>>) page.getClass());
-        List<TradeRecordNormalDto> tradeRecordNormalDto = JSONObject.parseArray(JSONObject.toJSONString(pageResults.getData().getContent()), TradeRecordNormalDto.class);
-        pageResults.getData().setContent(tradeRecordNormalDto);
-        return pageResults;
+        if (pageResults.ifSuccess()) {
+            List<TradeRecordNormalDto> tradeRecordNormalDto = JSONObject.parseArray(JSONObject.toJSONString(pageResults.getData().getContent()), TradeRecordNormalDto.class);
+            pageResults.getData().setContent(tradeRecordNormalDto);
+            return pageResults;
+        } else {
+            return Results.failure(null, pageResults.getMsg());
+        }
     }
 
     @Override

@@ -55,19 +55,14 @@ public class CreditPayTradeDto {
     private String remark;
 
     /**
-     * 开放平台分配给商户的服务商ID
+     * 商户编号
      */
-    private Long osPartnerId;
+    private String osMerchantCode;
 
     /**
-     * 开放平台分配给商户的商户ID
+     * 门店编号
      */
-    private Long osMerchantId;
-
-    /**
-     * 开放平台商户门店ID
-     */
-    private Long osStoreId;
+    private String osStoreCode;
 
     /**
      * 下单时间 时间戳，精确到毫秒
