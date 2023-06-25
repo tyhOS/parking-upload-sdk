@@ -11,7 +11,7 @@
   <properties>
     <java.version>1.8</java.version>
     <okhttp3.version>4.5.0</okhttp3.version>
-    <fastjson.version>1.2.78</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
   </properties>
@@ -177,16 +177,15 @@
   </build>
 
   <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-
     <repository>
-      <id>ossrh</id>
-      <name>Nexus Release Repository</name>
-      <url>http://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>rdc-releases</id>
+      <url>https://packages.aliyun.com/maven/repository/2160296-release-PtChSh/</url>
     </repository>
+
+    <snapshotRepository>
+      <id>rdc-snapshots</id>
+      <url>https://packages.aliyun.com/maven/repository/2160296-snapshot-DUD1nl/</url>
+    </snapshotRepository>
   </distributionManagement>
 
 </project>
