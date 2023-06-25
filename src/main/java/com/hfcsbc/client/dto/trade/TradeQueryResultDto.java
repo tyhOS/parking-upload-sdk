@@ -46,6 +46,11 @@ public class TradeQueryResultDto {
     private Integer paymentFee;
 
     /**
+     * 三方支付机构的优惠金额 单位为分
+     */
+    private Integer tpDiscountFee;
+
+    /**
      * 商户给开放平台的的附加数据，支付平台原封不动返回
      */
     private String remark;
