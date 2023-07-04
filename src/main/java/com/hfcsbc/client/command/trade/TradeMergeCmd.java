@@ -100,14 +100,9 @@ public class TradeMergeCmd {
         private String title;
 
         /**
-         * 平台分配商户编号
+         * 平台分配的门店编号
          */
         @NotNull
-        private String osMerchantCode;
-
-        /**
-         * 平台分配门店编号
-         */
         private String osStoreCode;
 
         /**

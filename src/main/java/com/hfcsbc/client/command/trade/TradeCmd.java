@@ -18,14 +18,9 @@ public class TradeCmd {
 
 
     /**
-     * 平台分配的商户编号
-     */
-    @NotNull
-    private String osMerchantCode;
-
-    /**
      * 平台分配的门店编号
      */
+    @NotNull
     private String osStoreCode;
 
     /**
