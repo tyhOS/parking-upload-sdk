@@ -26,8 +26,8 @@ public class TradeRefundQuery {
     private String ownerRefundNo;
 
     /**
-     * 技术服务商id，该参数只有超级服务商使用
+     * 技术服务商编号，该参数只有超级技术服务商使用
      */
-    private Long superTePartnerId;
+    private String superTePartnerCode;
 
 }
