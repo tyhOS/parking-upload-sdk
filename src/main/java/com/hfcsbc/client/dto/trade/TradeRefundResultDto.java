@@ -48,6 +48,16 @@ public class TradeRefundResultDto {
     private Integer refundFee;
 
     /**
+     * 本次用户实际退款金额
+     */
+    private Integer realRefundFee;
+
+    /**
+     * 机构优惠退款金额
+     */
+    private Integer tpDiscountRefundFee;
+
+    /**
      * 退款申请时间，时间戳，标准北京时间
      */
     private Long createdTime;
