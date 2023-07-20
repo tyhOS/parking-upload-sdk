@@ -132,6 +132,11 @@ public class TradeQueryResultDto {
      */
     private String tpMerchantId;
 
+    /**
+     * 开票主体（企业税号）
+     */
+    private String uscCode;
+
     // 支付记录id，兼容tyh-base的payRecordId
     private Long tempId;
 }

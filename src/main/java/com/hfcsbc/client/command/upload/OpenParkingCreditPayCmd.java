@@ -17,7 +17,7 @@ public class OpenParkingCreditPayCmd {
      * 门店id
      */
     @NotNull(message = "osStoreCode不可为空")
-    private Long osStoreCode;
+    private String osStoreCode;
 
     /**
      * 是否启用无感支付 0停用 1启用
