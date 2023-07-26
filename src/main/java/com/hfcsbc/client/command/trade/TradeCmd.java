@@ -16,17 +16,17 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class TradeCmd {
 
-
     /**
-     * 平台分配的商户ID
+     * 平台分配的商户编号
      */
     @NotNull
-    private Long osMerchantId;
+    private String osMerchantCode;
 
     /**
-     * 平台分配的商户门店ID
+     * 平台分配的门店编号
      */
-    private Long osStoreId;
+    @NotNull
+    private String osStoreCode;
 
     /**
      * 交易订单号，要求唯一

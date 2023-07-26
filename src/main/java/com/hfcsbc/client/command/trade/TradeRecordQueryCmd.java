@@ -20,19 +20,14 @@ import java.util.Date;
 public class TradeRecordQueryCmd {
 
     /**
-     * 开放平台服务商ID
+     * 平台分配的商户编号
      */
-    private Long osPartnerId;
+    private String osMerchantCode;
 
     /**
-     * 开放平台商户ID
+     * 平台分配的门店编号
      */
-    private Long osMerchantId;
-
-    /**
-     * 开放平台商户门店ID
-     */
-    private Long osStoreId;
+    private String osStoreCode;
 
     /**
      * 商户订单号
