@@ -61,7 +61,7 @@ TyhUploadClient uploadClient = TyhUploadClient.create(TyhOptions.builder()
 
 // 上传余位数据
 UploadSurplusCmd openParkingSurplusCmd = UploadSurplusCmd.builder()
-    .parkingCode(PARKING_CODE)
+    .osStoreCode(PARKING_CODE)
     .total(20)
     .surplus(10).build();
 
