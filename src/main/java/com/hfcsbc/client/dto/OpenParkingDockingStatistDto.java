@@ -20,9 +20,9 @@ import java.util.List;
 @AllArgsConstructor
 public class OpenParkingDockingStatistDto implements Serializable {
 
-	private List<Long> dockingList;
+	private List<String> dockingList;
 
-	private List<Long> onLineList;
+	private List<String> onLineList;
 
-	private List<Long> offLineList;
+	private List<String> offLineList;
 }

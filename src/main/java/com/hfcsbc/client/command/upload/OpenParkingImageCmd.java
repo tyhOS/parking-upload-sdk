@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -21,8 +22,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class OpenParkingImageCmd {
 
-    @NotNull(message = "osStoreId不可为空")
-    private Long osStoreId;
+    @NotEmpty(message = "osStoreCode不可为空")
+    private String osStoreCode;
 
     @NotNull(message = "carPlate不可为空")
     private String carPlate;

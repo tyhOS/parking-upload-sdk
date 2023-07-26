@@ -98,5 +98,8 @@ public class CreditPayTradeCmd {
      */
     private String ownerPayTerminal;
 
-
+    /**
+     * 服务商id，该参数只有超级服务商使用
+     */
+    private Long superOsPartnerId;
 }

@@ -66,6 +66,11 @@ public class TradeMergeCmd {
     private String notifyUrl;
 
     /**
+     * 服务商id，该参数只有超级服务商使用
+     */
+    private Long superOsPartnerId;
+
+    /**
      * 子单交易信息
      */
     @Data
