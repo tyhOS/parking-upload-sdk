@@ -2,9 +2,14 @@ package com.hfcsbc.client;
 
 import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
+import com.hfcsbc.client.command.creditagreement.*;
 import com.hfcsbc.client.command.trade.*;
 import com.hfcsbc.client.dto.credit.CreditPayCarStatusDto;
 import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementOrderAndSignDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementPaySignDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementPayTradeResultDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementQueryDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
@@ -109,4 +114,28 @@ public interface TyhPaymentClient {
      */
     Results<TradeRefundResultDto> creditRefund(TradeRefundCmd cmd) throws Exception;
 
+    /**
+     * 信用支付服务开通
+     */
+    Results<CreditAgreementPaySignDto> creditAgreementSign(CreditAgreementPaySignCmd cmd) throws Exception;
+
+    /**
+     * 信用支付下单
+     */
+    Results<CreditAgreementPayTradeResultDto> creditAgreementOrder(CreditAgreementPayOrderCmd cmd) throws Exception;
+
+    /**
+     * 信用支付扣款
+     */
+    Results<CreditAgreementPayTradeResultDto> creditAgreementTrade(CreditAgreementPayTradeCmd cmd) throws Exception;
+
+    /**
+     * 信用支付下单并签约
+     */
+    Results<CreditAgreementOrderAndSignDto> creditAgreementOrderAndSign(CreditAgreementOrderAndSignCmd cmd) throws Exception;
+
+    /**
+     * 信用支付服务状态查询
+     */
+    Results<CreditAgreementQueryDto> creditAgreementQuery(CreditAgreementPaySignQueryCmd cmd) throws Exception;
 }

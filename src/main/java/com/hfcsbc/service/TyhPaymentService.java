@@ -5,9 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.hfcsbc.client.TyhPaymentClient;
 import com.hfcsbc.client.command.credit.CreditPayCarStatusCmd;
 import com.hfcsbc.client.command.credit.CreditPayTradeCmd;
+import com.hfcsbc.client.command.creditagreement.*;
 import com.hfcsbc.client.command.trade.*;
 import com.hfcsbc.client.dto.credit.CreditPayCarStatusDto;
 import com.hfcsbc.client.dto.credit.CreditPayTradeDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementOrderAndSignDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementPaySignDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementPayTradeResultDto;
+import com.hfcsbc.client.dto.creditagreement.CreditAgreementQueryDto;
 import com.hfcsbc.client.dto.trade.*;
 import com.hfcsbc.client.model.Results;
 import com.hfcsbc.client.model.TyhRequest;
@@ -60,7 +65,12 @@ public class TyhPaymentService implements TyhPaymentClient {
     public static final String CREDIT_TRADE_PATH = APPLICATION_NAME + "/trade/credit/v2/open";             // 无感支付申请扣款
     public static final String CREDIT_CAR_STATUS = APPLICATION_NAME + "/trade/credit/carStatus/v1/open";   // 查询车牌是否可用无感支付
 
-
+    /* -------------------------- 信用支付 --------------------------- */
+    public static final String CREDIT_AGREEMENT_SIGN_PATH = APPLICATION_NAME + "/trade/creditAgreement/sign/v1/open";
+    public static final String CREDIT_AGREEMENT_ORDER_PATH = APPLICATION_NAME + "/trade/creditAgreement/order/v1/open";
+    public static final String CREDIT_AGREEMENT_TRADE_PATH = APPLICATION_NAME + "/trade/creditAgreement/v1/open";
+    public static final String CREDIT_AGREEMENT_ORDER_AND_SIGN_PATH = APPLICATION_NAME + "/trade/creditAgreement/orderAndSign/v1/open";
+    public static final String CREDIT_AGREEMENT_SIGN_QUERY_PATH = APPLICATION_NAME + "/trade/creditAgreement/sign/query/v1/open";
 
     private final Options options;
 
@@ -174,6 +184,31 @@ public class TyhPaymentService implements TyhPaymentClient {
     @Override
     public Results<TradeRefundResultDto> creditRefund(TradeRefundCmd cmd) throws Exception {
         return generalPostRequest(cmd, CREDIT_REFUND_PATH, TradeRefundResultDto.class);
+    }
+
+    @Override
+    public Results<CreditAgreementPaySignDto> creditAgreementSign(CreditAgreementPaySignCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_AGREEMENT_SIGN_PATH, CreditAgreementPaySignDto.class);
+    }
+
+    @Override
+    public Results<CreditAgreementPayTradeResultDto> creditAgreementOrder(CreditAgreementPayOrderCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_AGREEMENT_ORDER_PATH, CreditAgreementPayTradeResultDto.class);
+    }
+
+    @Override
+    public Results<CreditAgreementPayTradeResultDto> creditAgreementTrade(CreditAgreementPayTradeCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_TRADE_PATH, CreditAgreementPayTradeResultDto.class);
+    }
+
+    @Override
+    public Results<CreditAgreementOrderAndSignDto> creditAgreementOrderAndSign(CreditAgreementOrderAndSignCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_AGREEMENT_ORDER_AND_SIGN_PATH, CreditAgreementOrderAndSignDto.class);
+    }
+
+    @Override
+    public Results<CreditAgreementQueryDto> creditAgreementQuery(CreditAgreementPaySignQueryCmd cmd) throws Exception {
+        return generalPostRequest(cmd, CREDIT_AGREEMENT_SIGN_QUERY_PATH, CreditAgreementQueryDto.class);
     }
 
 }
